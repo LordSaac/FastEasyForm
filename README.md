@@ -2,6 +2,9 @@
 
 Simple List IGB is new a dynamic template for creating easy forms for the Android kotlin developer. Combine any design and adapt this library in your final user interface.
 
+<img src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103520.png">
+<img src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103524.png">
+
 ## Type Rows: 
 *	**ROW_TITLE:** use this row for add sections and separators. 
 
