@@ -1,0 +1,9 @@
+<resources>
+    <!-- Strings related to Error messages -->
+    <string name="Error_tag">Error</string>
+    <!-- Strings Error Adapters -->
+    <string name="Error_001">View not present windows </string>    <!-- This error is category 1, not affect the performance -->
+    <!-- Strings Messages -->
+    <string name="Empty_messages">Empty</string>
+
+</resources>
