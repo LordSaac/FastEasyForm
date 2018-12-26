@@ -1,6 +1,21 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
+apply plugin: 'idea'
+apply plugin: "com.jfrog.artifactory"
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.8.1"
+    }
+}
 
 android {
     compileSdkVersion 28
@@ -46,4 +61,80 @@ dependencies {
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
 
+}
+
+
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+    apply plugin: 'maven'
+}
+
+subprojects {
+    configurations {
+        published
+    }
+    dependencies {
+        testCompile 'junit:junit:4.12'
+    }
+}
+
+bintray {
+     user = 'linkinzel1'
+     key = 'fdfdfdfd'
+     publish = true
+     publications = ['MyPublication']
+
+    filesSpec {
+        from 'build/libs'
+        into 'standalone_files/level1'
+    }
+
+    pkg {
+
+
+        def publishVersionID = '0.0.2'
+        def artifactProjectID = 'simpleformigb'
+        def groupProjectID = 'com.jgb.lordsaac.igb.formsimpleigb'
+
+        repo = 'Form_Simple_IGB'
+        name = artifactProjectID
+        userOrg = 'linkinzel1'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/LordSaac/FormSimpleIGB'
+        websiteUrl = 'https://github.com/LordSaac/FormSimpleIGB'
+
+        version {
+            name = publishVersionID
+            desc = 'Simple List IGB is a dynamic template for creating easy forms for the Android Kotlin developer. Combine any design and adapte Simple List IGN in your final user interface.'
+            released  = new Date()
+            vcsTag = publishVersionID
+            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+        }
+
+        publishing {
+            publications {
+                MyPublication(MavenPublication) {
+                    groupId groupProjectID
+                    artifactId artifactProjectID
+                    version publishVersionID
+                    //artifact(sourceJar)
+                    vcsUrl = 'https://github.com/LordSaac/FormSimpleIGB'
+                    artifact("$buildDir/outputs/aar/formsimple-release.aar")
+                }
+            }
+
+            repositories {
+                mavenCentral()
+            }
+        }
+
+    }
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
 }
