@@ -7,6 +7,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'idea'
 apply plugin: "com.jfrog.artifactory"
 
+
 buildscript {
     repositories {
         jcenter()
@@ -16,7 +17,12 @@ buildscript {
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.8.1"
     }
 }
-
+allprojects {
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
+}
 android {
     compileSdkVersion 28
 
@@ -24,7 +30,7 @@ android {
         minSdkVersion 20
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -85,13 +91,14 @@ artifacts {
     archives sourcesJar
 }
 
+
 bintray {
     user = 'linkinzel1'//System enviroment variable
     key = 'f326dbc498bf21ae6efb63278e8f112569ce1963'
     logger.log(LogLevel.ERROR, "user:" + user + " key:" + key)
     publications = ['MyPublication']
     pkg {
-        repo = 'Forms'
+        repo = 'Forms_IGB'
         name = 'simpleformigb'
         //        userOrg = 'bintray_user'
         licenses = ['Apache-2.0']
@@ -135,9 +142,10 @@ def pomConfig = {
     }
 }
 
-publishing {
+project.publishing {
     publications {
         MyPublication(MavenPublication) {
+
             artifact("$buildDir/outputs/aar/formsimple-release.aar")
             groupId 'com.jgb.lordsaac.igb.formsimpleigb'
             artifactId 'simpleformigb'
