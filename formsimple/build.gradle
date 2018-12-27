@@ -43,6 +43,7 @@ android {
 
 }
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -64,77 +65,106 @@ dependencies {
 }
 
 
-
-allprojects {
-    repositories {
-        jcenter()
-    }
-    apply plugin: 'maven'
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
 }
 
-subprojects {
-    configurations {
-        published
-    }
-    dependencies {
-        testCompile 'junit:junit:4.12'
-    }
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
 }
 
 bintray {
-     user = 'linkinzel1'
-     key = 'fdfdfdfd'
-     publish = true
-     publications = ['MyPublication']
-
-    filesSpec {
-        from 'build/libs'
-        into 'standalone_files/level1'
-    }
-
+    user = 'linkinzel1'//System enviroment variable
+    key = 'f326dbc498bf21ae6efb63278e8f112569ce1963'
+    logger.log(LogLevel.ERROR, "user:" + user + " key:" + key)
+    publications = ['MyPublication']
     pkg {
-
-
-        def publishVersionID = '0.0.2'
-        def artifactProjectID = 'simpleformigb'
-        def groupProjectID = 'com.jgb.lordsaac.igb.formsimpleigb'
-
-        repo = 'Form_Simple_IGB'
-        name = artifactProjectID
-        userOrg = 'linkinzel1'
+        repo = 'Forms'
+        name = 'simpleformigb'
+        //        userOrg = 'bintray_user'
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/LordSaac/FormSimpleIGB'
         websiteUrl = 'https://github.com/LordSaac/FormSimpleIGB'
+        issueTrackerUrl = 'https://github.com/LordSaac/FormSimpleIGB/issues'
 
+        vcsUrl = 'https://github.com/LordSaac/FormSimpleIGB.git'
+        publicDownloadNumbers = true
+
+        //        githubRepo = 'linjonh/MvpArch' //Optional Github repository
+        //        githubReleaseNotesFile = 'README.md' //Optional Github readme file
+        publish = true
         version {
-            name = publishVersionID
+            name = android.defaultConfig.versionName
             desc = 'Simple List IGB is a dynamic template for creating easy forms for the Android Kotlin developer. Combine any design and adapte Simple List IGN in your final user interface.'
-            released  = new Date()
-            vcsTag = publishVersionID
+            released = new Date()
+            vcsTag = android.defaultConfig.versionName
             attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
         }
+    }
+}
 
-        publishing {
-            publications {
-                MyPublication(MavenPublication) {
-                    groupId groupProjectID
-                    artifactId artifactProjectID
-                    version publishVersionID
-                    //artifact(sourceJar)
-                    vcsUrl = 'https://github.com/LordSaac/FormSimpleIGB'
-                    artifact("$buildDir/outputs/aar/formsimple-release.aar")
+def pomConfig = {
+    licenses {
+        license {
+            name "The Apache Software License, Version 2.0"
+            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id "lordsaac"
+            name "Isaac Banda"
+            email "jose19.26@hotmail.com"
+        }
+    }
+
+    scm {
+        url "https://github.com/LordSaac"
+    }
+}
+
+publishing {
+    publications {
+        MyPublication(MavenPublication) {
+            artifact("$buildDir/outputs/aar/formsimple-release.aar")
+            groupId 'com.jgb.lordsaac.igb.formsimpleigb'
+            artifactId 'simpleformigb'
+            version android.defaultConfig.versionName
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+                def root = asNode()
+                root.appendNode('description', 'Simple List IGB is a dynamic template for creating easy forms for the Android Kotlin developer. Combine any design and adapte Simple List IGN in your final user interface.')
+                root.appendNode('name', 'simpleformigb')
+                root.appendNode('url', 'https://github.com/LordSaac/FormSimpleIGB')
+                root.children().last() + pomConfig
+                // Iterate over the implementation dependencies (we don't want the test ones), adding a <dependency> node for each
+                //android gradle 3.0 use implementation
+                configurations.implementation.allDependencies.each {
+                    // Ensure dependencies such as fileTree are not included.
+                    logger.log(LogLevel.ERROR,"allDependencies.each:====>"+it.toString()+"\n")
+
+                    if (it.name != 'unspecified') {
+                        logger.log(LogLevel.ERROR,"allDependencies.each: !unspecified: "+it.name+"\n")
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                    }
                 }
             }
 
-            repositories {
-                mavenCentral()
-            }
         }
-
     }
-
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.4'
 }
