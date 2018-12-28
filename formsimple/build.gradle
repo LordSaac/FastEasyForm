@@ -30,7 +30,7 @@ android {
         minSdkVersion 20
         targetSdkVersion 28
         versionCode 1
-        versionName "0.0.2"
+        versionName "0.0.3"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -72,18 +72,22 @@ dependencies {
 
 
 task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
+    from android.sourceSets.main.kotlin.srcDirs
     classifier = 'sources'
 }
 
 task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
+    source = android.sourceSets.main.kotlin.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
+}
+
+tasks.withType(Javadoc).all {
+    enabled = false
 }
 
 artifacts {
@@ -94,7 +98,7 @@ artifacts {
 
 bintray {
     user = 'linkinzel1'//System enviroment variable
-    key = 'flknjkjk,'
+    key = 'f326dbc498bf21ae6efb63278e8f112569ce1963'
     logger.log(LogLevel.ERROR, "user:" + user + " key:" + key)
     publications = ['MyPublication']
     pkg {
