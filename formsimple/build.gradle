@@ -30,7 +30,7 @@ android {
         minSdkVersion 20
         targetSdkVersion 28
         versionCode 1
-        versionName "0.0.3"
+        versionName "0.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -60,7 +60,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.manager.font.fontlibreryigb:fontmanager:0.0.9'
     implementation 'com.android.support:cardview-v7:28.0.0'
@@ -86,9 +85,9 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
-tasks.withType(Javadoc).all {
-    enabled = false
-}
+//tasks.withType(Javadoc).all {
+//    enabled = false
+//}
 
 artifacts {
     archives javadocJar
@@ -97,10 +96,11 @@ artifacts {
 
 
 bintray {
-    user = 'linkinzel1'//System enviroment variable
-    key = 'f326dbc498bf21ae6efb63278e8f112569ce1963'
+    user = ''//System enviroment variable
+    key = ''
     logger.log(LogLevel.ERROR, "user:" + user + " key:" + key)
     publications = ['MyPublication']
+    //configurations = ['archives']
     pkg {
         repo = 'Forms_IGB'
         name = 'simpleformigb'
@@ -108,12 +108,12 @@ bintray {
         licenses = ['Apache-2.0']
         websiteUrl = 'https://github.com/LordSaac/FormSimpleIGB'
         issueTrackerUrl = 'https://github.com/LordSaac/FormSimpleIGB/issues'
-
         vcsUrl = 'https://github.com/LordSaac/FormSimpleIGB.git'
         publicDownloadNumbers = true
 
         //        githubRepo = 'linjonh/MvpArch' //Optional Github repository
         //        githubReleaseNotesFile = 'README.md' //Optional Github readme file
+
         publish = true
         version {
             name = android.defaultConfig.versionName
@@ -146,10 +146,12 @@ def pomConfig = {
     }
 }
 
-project.publishing {
+publishing {
     publications {
         MyPublication(MavenPublication) {
 
+            artifact sourcesJar
+            //artifact javadocJar
             artifact("$buildDir/outputs/aar/formsimple-release.aar")
             groupId 'com.jgb.lordsaac.igb.formsimpleigb'
             artifactId 'simpleformigb'
