@@ -2,7 +2,8 @@
 
 ### Dependency
 
-dependencies {<br>
+dependencies {
+<br>
 ` implementation 'com.jgb.lordsaac.igb.formsimpleigb:simpleformigb:0.0.1'`
  <br>
 }
@@ -37,7 +38,7 @@ Simple List IGB is new a dynamic template for creating easy forms for the Androi
 
 *	**ROW_INFO:** add basic information for your descriptions.  
 
-*  [For more info, see you Wiki.](https://github.com/LordSaac/Form-Simple-IGB/wiki)
+*  [For more info, see you Wiki.](https://github.com/LordSaac/FormSimpleIGB/wiki)
 
 ## Descriptions attributes: 
 
