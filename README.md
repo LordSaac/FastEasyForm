@@ -11,7 +11,7 @@ Simple List IGB is new a dynamic template for creating easy forms for the Androi
 
 <p align="center">
 
-|Example #1|Example #2|
+|Example Top #1|Example Buttom #2|
 |:----:|:----:|
 |<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103520.png">|<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103524.png">|
 </p>
