@@ -17,8 +17,6 @@ Simple List IGB is new a dynamic template for creating easy forms for the Androi
 |<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103520.png">|<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103524.png">|
 </p>
 
-
-
 ## Type Rows: 
 *	**ROW_TITLE:** use this row for add sections and separators. 
 
@@ -151,7 +149,7 @@ class MainActivity : AppCompatActivity(), FormsListenerIGB {
  }
 ```
 <br>
-<h2>Released November 28, 2018</h2>
+<h2>Released December 28, 2018</h2>
 
 ## Licence
 
