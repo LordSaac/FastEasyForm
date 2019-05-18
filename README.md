@@ -1,13 +1,5 @@
 # Form Simple IGB (Beta)
 
-### Dependency
-
-dependencies {
-<br>
-` implementation 'com.jgb.lordsaac.igb.formsimpleigb:simpleformigb:0.0.1'`
- <br>
-}
-
 Simple List IGB is new a dynamic template for creating easy forms for the Android kotlin developer. Combine any design and adapt this library in your final user interface.
 
 <p align="center">
@@ -149,6 +141,21 @@ class MainActivity : AppCompatActivity(), FormsListenerIGB {
  }
 ```
 <br>
+
+### Dependency:
+
+dependencies {
+<br>
+` implementation 'com.jgb.lordsaac.igb.formsimpleigb:simpleformigb:0.0.1'`
+ <br>
+}
+<br>
+:coffee: Oh, amazing, I buy you a coffee:  https://paypal.me/LordSaac?locale.x=es_XC
+<br>
+:star:	  Or you could give a star
+<br>
+:raised_hands: Thanks! 
+
 <h2>Released December 28, 2018</h2>
 
 ## Licence
