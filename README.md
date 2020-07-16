@@ -157,7 +157,7 @@ dependencies {
 <br>
 :raised_hands: Thanks! 
 
-<h2>Released December 28, 2018</h2>
+<h2>Release December 28, 2018</h2>
 
 ## Licence
 
