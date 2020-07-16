@@ -142,17 +142,18 @@ class MainActivity : AppCompatActivity(), FormsListenerIGB {
 ```
 <br>
 
-### Dependency:
+# Gradle:
 
 dependencies {
 <br>
 ` implementation 'com.jgb.lordsaac.igb.formsimpleigb:simpleformigb:0.0.1'`
  <br>
 }
-<br><br>
-:coffee: Oh, amazing, I buy you a coffee [Here](https://paypal.me/LordSaac?locale.x=es_XC)
 <br>
-:star: Or you could give a star [Here](https://github.com/LordSaac/FormSimpleIGB)
+<br>
+:coffee: Oh, amazing, I buy you a [coffee](https://paypal.me/LordSaac?locale.x=es_XC)
+<br>
+:star: Do you like library, give it a [star](https://github.com/LordSaac/ProgressLottieIGB)
 <br>
 :raised_hands: Thanks! 
 
