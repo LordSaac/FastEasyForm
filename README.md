@@ -149,13 +149,13 @@ dependencies {
 ` implementation 'com.jgb.lordsaac.igb.formsimpleigb:simpleformigb:0.0.1'`
  <br>
 }
-<br>
-<br>
-:coffee: Oh, amazing, I buy you a [coffee](https://paypal.me/LordSaac?locale.x=es_XC)
-<br>
-:star: Do you like library, give it a [star](https://github.com/LordSaac/ProgressLottieIGB)
-<br>
-:raised_hands: Thanks! 
+# Contribution
+
+You are most welcome to contribute to this project!
+
+*  Buy me a  [Coffee](https://paypal.me/LordSaac?locale.x=es_XC)  &nbsp; :coffee:
+
+*  Give me a [Star](https://github.com/LordSaac/ProgressLottieIGB) &nbsp; :star: 
 
 <h2>Release December 28, 2018</h2>
 
