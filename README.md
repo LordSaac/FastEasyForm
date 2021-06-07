@@ -155,7 +155,7 @@ You are most welcome to contribute to this project!
 
 *  Buy me a  [Coffee](https://paypal.me/LordSaac?locale.x=es_XC)  &nbsp; :coffee:
 
-*  Give me a [Star](https://github.com/LordSaac/ProgressLottieIGB) &nbsp; :star: 
+*  Give me a [Star](https://github.com/LordSaac/FormSimpleIGB) &nbsp; :star: 
 
 <h2>Release December 28, 2018</h2>
 
