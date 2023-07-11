@@ -1,4 +1,4 @@
-# Form Simple IGB 
+# Fast & Easy Forms 
 
 Simple List IGB is new a dynamic template for creating easy forms for the Android kotlin developer. Combine any design and adapt this library in your final user interface.
 
