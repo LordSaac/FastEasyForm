@@ -329,8 +329,8 @@ Specifically for rows needing quick validation, like accepting terms or specific
 
      Row(ROW_CHECK){
 
-                setText.text= "Do you like job?" // Add text for the text
-                setText.tag = tagCheck //tag for identification of the row
+                setText.text= "Are you like you job?" // Add text for the text
+                setText.tag = "0012" //tag for identification of the row
                 checked = true // Initialize check in false or true
 
             }
@@ -598,7 +598,9 @@ You are most welcome to contribute to this project!
 
 *  Buy me a  [Coffee](https://paypal.me/LordSaac?locale.x=es_XC)  &nbsp; :coffee:
 
-*  Give me a [Star](https://github.com/LordSaac/FormSimpleIGB) &nbsp; :star: 
+*  Give me a [Star](https://github.com/LordSaac/FormSimpleIGB) &nbsp; :star:
+
+  
 
 
 # Licence
