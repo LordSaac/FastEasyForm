@@ -219,21 +219,17 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 ```
 
 ## Methods:
-#### Get:
-Add tag the row for getting the atributte text, checked, list options, postion. 
-```
- str =  SimpleFormsIGB.Result(tagEditAge).text 
-```
-#### Update:
-For update row insert in left the correspond tag and the right use "Set Row" for update: checked,text,position or selecting options.
-```
-   SimpleFormsIGB.UpdateRow(yourTag, SetRow {checked = true})
-```
-#### Validate:
-Validate row brands with the attribute "Validate" if the state is true. 
-```
- SimpleFormsIGB.validationForms() 
-```
+
+| Functions       | Descriptions                                       | Code      |
+|-----------------|---------------------------------------------------|-------------|
+| start           | Starts generating the form in the user interface. |     ``` easyForm.start(your_reciclerview)     ```        |
+| validateAll     |Valid all fields of the form.           |       ``` easyForm.tool.validateAll()   ```        |
+| validateByTag   | Validates a specific field identified by a label. |   ``` easyForm.tool.validateByTag("Tag Id")   ```            |
+| getResultByTag  | Gets the result of a specific field by its label. | ``` easyForm.tool.getResultByTag("Tag Id")   ```           |
+| getResult       | Gets the overall result of the form.        |  ``` easyForm.tool.getResultAll()   ```            |
+| updateRow       | Updates a row or section of the form.       |  ``` easyForm.tool.updateRow("Tag Id",ResponseFormsIGB())   ```              |
+| eventChecked    | Handles item verification or selection events. | ``` easyForm.tool.eventChecked(false,0)  ```          |
+
 
 # Contribution
 
@@ -243,11 +239,10 @@ You are most welcome to contribute to this project!
 
 *  Give me a [Star](https://github.com/LordSaac/FormSimpleIGB) &nbsp; :star: 
 
-<h2>Release December 28, 2018</h2>
 
 ## Licence
 
-Copyright 2018 Isaac G. Banda
+Copyright 2024 José I. Gutiérrez B.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
