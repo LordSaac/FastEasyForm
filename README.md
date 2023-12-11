@@ -1,6 +1,6 @@
 # Fast & Easy Forms 
 
-Simple List IGB is new a dynamic template for creating easy forms for the Android kotlin developer. Combine any design and adapt this library in your final user interface.
+Fast & Easy Form: is a builder forms for your Android project, with this library you will can build forms more fast and easy, using a clear structure for implement in your proyect. This solution offer a different tools like: validations, get data, update data and events listeners.
 
 <p align="center">
 
@@ -9,101 +9,215 @@ Simple List IGB is new a dynamic template for creating easy forms for the Androi
 |<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103520.png">|<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103524.png">|
 </p>
 
-## Type Rows: 
-*	**ROW_TITLE:** use this row for add sections and separators. 
+<!-- TOC -->
 
-*	**ROW_ACTIVITY:** here call any activity. 
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+  - [Settings Gradle](#settings-gradle)
+  - [Dependencie](#dependencie)
+- [Getting Started](#getting-started)
+  - [Add a floating panel as a child view controller](#add-a-floating-panel-as-a-child-view-controller)
+  - [Present a floating panel as a modality](#present-a-floating-panel-as-a-modality)
 
-*	**ROW_MULTIPLE_CHECK_LIST:** use this row for selected more of one options.
+<!-- /TOC -->
 
-*	**ROW_SINGLE_CHECK_LIST:** select only one options.
+## Features
 
-*	**ROW_CHECK:** use this list for easy check.
+- [x] Reduce development time for forms
+- [x] Create simple and user-friendly forms
+- [x] Implement row-level validation for the form fields
+- [x] Ability to update rows/data within the form
+- [x] Retrieve data based on a unique identifier
+- [x] Implement interactive listeners for form elements
+- [x] Scroll view form
+- [x] Customize text colors
+- [x] Customize icons
+- [x] Change size text
+- [x] Support for Jetpack Compose
+- [x] Use Java 11
 
-*	**ROW_EDIT:** use this row for editing text.
+## Requirements
 
-*	**ROW_CALENDAR_HOUR:** use for to select hours and minutes.
+Fast & Easy Form is written in Kotlin & Java and compatible with min Sdk version 26 and min version Java 11
 
-*	**ROW_CALENDAR:** use basic calendar for your forms.
+## Installation
 
-*	**ROW_INFO:** add basic information for your descriptions.  
+### Settings Gradle
 
-*  [For more info, see you Wiki.](https://github.com/LordSaac/FormSimpleIGB/wiki)
+Fast & Easy Form is available through [Github](github.com). To install
+it, simply add the following line to your settings gradle:
 
-## Descriptions attributes: 
+```gradle
+allprojects {
+    repositories {
 
-*	**title:** add title name.
+        mavenLocal()
 
-*	**text:** add a description for your row
-
-*	**tag:** for identification of the row.
-
-*	**titleColor:** Add any colors for title.
-
-*	**activity:** add any class activity for your call, when the user click in the option appear the activity.
-
-*	**validation:** here validate rows important for your forms.
-
-*	**options:** is a list composite for selecting a groups options.
-
-*	**colorBackgroundToolbar:** add color in the toolbar (optional but recomendable)
-
-*	**emptyMessage:** add messsage when your list is empty.
-
-*	**imageEmpty:** Add an image for empty list (Optional)
-
-*	**checked:** Initialize check in false or true
-
-*	**inputTypeEditText:** to choose type EDITTEXT
-
-*	**maxLength:** choose the text length to text edit
-
-## Initialize Form:  
-#### Add XML Tools (Optional)
-Add this component in your XML, but is optional, you can add own Recyclerview control: 
+    }
+}
 ```
-    <com.creativity.dev.formsimple.ext.FormSimpleIGB
-            android:id="@+id/rv_main"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/button" android:layout_marginTop="0dp"
-            app:layout_constraintTop_toTopOf="parent"/>
+
+### Dependencie
+
+For [dependencie version](https://github.com/LordSaac/FormSimpleIGB/packages/), add the following to your `gradle`:
+
+```gradle
+implementation 'com.form.jigb:formsimple:v0.3.3'
 ```
-#### Simple Form Example:  
-```
-     private fun init(){
-       Row(ROW_TITLE){ 
-            title = "Information"
-            titleColor = ContextCompat.getColor(applicationContext, R.color.colorPrimaryDark) 
+
+## Getting Started
+
+### Config in your class MainActivity.kt
+
+For classic class activity follow the next code example.
+
+```kotlin
+class MainActivity : AppCompatActivity(), FormsListenerIGB {
+
+    private lateinit var rv_main: RecyclerView // Add RecyclerView into xml
+
+    private lateinit var easyForm: EasyForm
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        this.easyForm = EasyForm(this)
+
+        this.rv_main = findViewById(R.id.rv_main)
+
+        this.init()
+
+    }
+
+    private fun init(){
+
+    /* Build here */
+
+        Row(ROW_TITLE) {
+
+            setText.title = "Getting started"
+
+            setColor.title = R.color.colorPrimary_aar
         }
-        
-       Row(ROW_EDIT){
-            title = "Firts Name" 
-        }
 
-        Row(ROW_EDIT){
+        Row(ROW_INFO) {
 
-            title = "Lastname"
-            validation = true
+            setText.title = "Hello word!"
+
+            setColor.title = R.color.colorGray
 
         }
-        
-          Row(ROW_EDIT){
 
-            title = "Correo Electronico"
-            text= "jose19.26@hotmail.com"
-            inputTypeEditText = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS 
 
-        } 
-        yourRecyclerview.initListDynamic()       
-     } 
+        easyForm.start(rv_main)
+
+    }
+
+
+
+    override fun actionFormResponse(result: ResponseFormsIGB) {
+
+
+
+    }
+
+}
 ```
 
-#### For initialize forms add: 
-This object is very important for initialize the form: 
+### Config in your class ComposeActivity.kt
+
+For projects JetPack Compose follow the next code example.
+
+```kotlin
+class ComposeActivity : ComponentActivity() {
+
+    private val context = this
+
+    private lateinit var easyForm: EasyForm
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        this.easyForm = EasyForm(this)
+
+        setContent {
+            FormSimpleIGBTheme {
+                // A surface container using the 'background' color from the theme
+
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+
+                    ComposeScreen(context,easyForm)
+
+                }
+            }
+        }
+    }
+
+}
+
 ```
-yourRecyclerview.initListDynamic() //Here initialize your recycler view
+#### Composable
+
+Config the composable code into activity or preview screen.
+
+```kotlin
+
+@Composable
+fun ComposeScreen(context:Context,customForm: EasyForm) {
+
+    EasyFormCompose(
+        customForm = customForm,
+        modifier = Modifier.fillMaxWidth(),
+        rows = {
+
+            Row(ROW_TITLE) { // <--- Add Title
+
+                setText.title = "Easy Form" //<--- add your title name
+                setColor.title = ContextCompat.getColor(
+                    context,
+                    R.color.colorPrimaryDark
+                ) // <--- Add any colors for title
+
+            }
+
+            Row(ROW_EDIT) {
+
+                setText.title = "Email"// title row.
+                inputTypeEditText = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS //  To choose type EDITTEXT (https://developer.android.com/reference/android/widget/EditText)
+
+            }
+
+            Row(ROW_EDIT) {
+                setText.title = "Full name" // Add only text, but the text edit type is default
+            }
+
+            Row(ROW_EDIT) {
+
+                setText.title = "Address" // Add only text, but the text edit type is default
+                ///  emptyMessages = "Please insert lastname"
+                validation = true  // Add it is you want validate this row
+
+            }
+
+            Row(ROW_EDIT){
+
+                setText.title = "Cell Phone"// title row.
+                inputTypeEditText = InputType.TYPE_CLASS_PHONE //  To choose type EDITTEXT (https://developer.android.com/reference/android/widget/EditText)
+            }
+
+        }
+
+    )
+
+}
+
 ```
+
 ## Methods:
 #### Get:
 Add tag the row for getting the atributte text, checked, list options, postion. 
@@ -120,35 +234,7 @@ Validate row brands with the attribute "Validate" if the state is true.
 ```
  SimpleFormsIGB.validationForms() 
 ```
-## Listener Descriptions: 
-#### FormsListenerResponse: 
-This interface detect changes in the rows, for using you need the corresponding tag row for is identification. 
-<br>
-Example:
-```
-class MainActivity : AppCompatActivity(), FormsListenerIGB {
- 
- // Body Activity
- 
- override fun FormsListenerResponse(obj: ResponseFormsIGB) {
 
-        if(obj.tag.equals(myTag)){
-            AlertDialogManager.simpleAlerts(this,"Alert","Hello, i here")
-        }
-
-    }
-   
- }
-```
-<br>
-
-# Gradle:
-
-dependencies {
-<br>
-` implementation 'com.jgb.lordsaac.igb.formsimpleigb:simpleformigb:0.0.1'`
- <br>
-}
 # Contribution
 
 You are most welcome to contribute to this project!
