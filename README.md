@@ -17,9 +17,25 @@ Fast & Easy Form: is a builder forms for your Android project, with this library
   - [Settings Gradle](#settings-gradle)
   - [Dependencie](#dependencie)
 - [Getting Started](#getting-started)
-  - [Add a floating panel as a child view controller](#add-a-floating-panel-as-a-child-view-controller)
-  - [Present a floating panel as a modality](#present-a-floating-panel-as-a-modality)
+  - [Example MainActivity](#example-mainactivity)
+  - [Example ComposeActivity](#example-composeactivity)
+    - [Composable](#composable)
+- [Documentation](#documentation)
+  - [Functions](#functions)
+  - [Parameters & Compatibility](#parameters-and-compatibility)
+    - [General parameters](#description-of-general-parameters)
+    - [Categorized parameters used for SetText](#description-of-categorized-parameters-used-for-settext)
+    - [Categorized parameters for Lists](#description-of-categorized-parameters-for-lists)
+    - [Categorized parameters for EditText](#description-of-categorized-parameters-for-edittext)
+    - [Categorized parameters for Animations](#description-of-categorized-parameters-for-animations)
+    - [Categorized parameters for Colors](#description-of-categorized-parameters-for-colors)
+    - [Categorized parameters for Size](#description-of-categorized-parameters-for-size)
+    - [Categorized parameters for Padding](#description-of-categorized-parameters-for-padding)
+    - [Categorized Parameters for Margin](#description-of-categorized-parameters-for-margin)
+    - [Categorized Parameters for Alignment](#description-of-categorized-parameters-for-alignment)
+    - [Categorized parameters for Visibility](#description-of-categorized-parameters-for-visibility)
 
+- [Licence](#licence)
 <!-- /TOC -->
 
 ## Features
@@ -68,7 +84,7 @@ implementation 'com.form.jigb:formsimple:v0.3.3'
 
 ## Getting Started
 
-### Config in your class MainActivity.kt
+###  Example MainActivity
 
 For classic class activity follow the next code example.
 
@@ -126,7 +142,7 @@ class MainActivity : AppCompatActivity(), FormsListenerIGB {
 }
 ```
 
-### Config in your class ComposeActivity.kt
+### Example ComposeActivity
 
 For projects JetPack Compose follow the next code example.
 
@@ -175,41 +191,23 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
         modifier = Modifier.fillMaxWidth(),
         rows = {
 
-            Row(ROW_TITLE) { // <--- Add Title
+         
+        Row(ROW_TITLE) {
 
-                setText.title = "Easy Form" //<--- add your title name
-                setColor.title = ContextCompat.getColor(
-                    context,
-                    R.color.colorPrimaryDark
-                ) // <--- Add any colors for title
+            setText.title = "Getting started"
 
-            }
+            setColor.title = R.color.colorPrimary_aar
+        }
 
-            Row(ROW_EDIT) {
+        Row(ROW_INFO) {
 
-                setText.title = "Email"// title row.
-                inputTypeEditText = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS //  To choose type EDITTEXT (https://developer.android.com/reference/android/widget/EditText)
+            setText.title = "Hello word!"
 
-            }
+            setColor.title = R.color.colorGray
 
-            Row(ROW_EDIT) {
-                setText.title = "Full name" // Add only text, but the text edit type is default
-            }
-
-            Row(ROW_EDIT) {
-
-                setText.title = "Address" // Add only text, but the text edit type is default
-                ///  emptyMessages = "Please insert lastname"
-                validation = true  // Add it is you want validate this row
-
-            }
-
-            Row(ROW_EDIT){
-
-                setText.title = "Cell Phone"// title row.
-                inputTypeEditText = InputType.TYPE_CLASS_PHONE //  To choose type EDITTEXT (https://developer.android.com/reference/android/widget/EditText)
-            }
-
+        }
+   
+         
         }
 
     )
@@ -218,7 +216,9 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 
 ```
 
-## Methods:
+## Documentation
+
+### Functions
 
 | Functions       | Descriptions                                       | Code      |
 |-----------------|---------------------------------------------------|-------------|
@@ -230,6 +230,119 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 | updateRow       | Updates a row or section of the form.       |  ``` easyForm.tool.updateRow("Tag Id",ResponseFormsIGB())   ```              |
 | eventChecked    | Handles item verification or selection events. | ``` easyForm.tool.eventChecked(false,0)  ```          |
 
+### Parameters and compatibility 
+
+#### Description of general parameters
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| Activity          | ROW_ACTIVITY          | Used to invoke the desired activity.                                 |
+| bundleActivity    | ROW_ACTIVITY          | Used to send information between activities.                         |
+| checked           | ALL                   | Declares that the field in this row needs validation before processing. |
+| isAvailable       | ROW_EDIT              | Specifies if the displayed data is enabled for editing.             |
+| isSingleList      | ROW_SINGLE_CHECK_LIST | Notifies the list that the selection will be one-to-many.            |
+| setDateFormat     | ROW_CALENDAR, ROW_CALENDAR_HOUR | Sets the desired date format for display.                   |
+| maxLength         | ROW_EDIT              | Sets the maximum number of characters the user can input.           |
+| inputTypedEditText| ROW_EDIT              | Configures the keyboard type for data capture.                      |
+| gravityTitle      | ALL                   | Adjusts the position of the title.                                   |
+| universalContentGravity | ALL              | Adjusts the position of the container confirming the entire row's body. |
+| isEndableImageSelected | ROW_SINGLE_CHECK_LIST | Enables or disables checkboxes.                                   |
+| TypeRow           | ALL                   | Assigns the type of row to be built.                                 |
+
+#### Description of categorized parameters used for SetText
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| title             | ALL                   | Assigns text for the title.                                          |
+| tag               | ALL                   | Assigns a unique identifier.                                         |
+| text              | ALL                   | Assigns a description below the title.                               |
+| edtHint           | ROW_EDIT              | Displays informative text inside the edit field.                    |
+| comment           | ROW_EDIT              | Adds special comments within the row.                                |
+| icon              | ALL                   | Used to assign icons using Font Awesome codes.                       |
+| emptyMessages     | ALL                   | Displays informative text indicating that this field must be filled.|
+
+#### Description of categorized parameters for Lists
+
+| Parameter         | Compatibility               | Description                                                         |
+|-------------------|------------------------------|---------------------------------------------------------------------|
+| options           | ROW_SINGLE_CHECK_LIST, ROW_MULTIPLE_CHECK_LIST | Assigns special lists to choose from one or many options, depending on the list type. |
+| arrayDates        | ROW_CALENDAR                | Assigns a special list of dates to delimit dates between weeks.     |
+
+#### Description of categorized parameters for EditText
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| isEditable        | ROW_EDIT              | Sets whether the data can be edited by the user.                    |
+
+#### Description of categorized parameters for Animations
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| intentEnter       | ROW_ACTIVITY          | Assigns an animation for opening an activity.                       |
+| intentExit        | ROW_ACTIVITY          | Assigns an animation for closing an activity.                       |
+
+#### Description of categorized parameters for Colors
+
+| Parameter         | Compatibility               | Description                                                         |
+|-------------------|------------------------------|---------------------------------------------------------------------|
+| title             | ALL                          | Sets the color for row titles.                                       |
+| descriptions      | ALL                          | Sets the color for row descriptions.                                 |
+| icons             | ALL                          | Sets the color for row icons.                                        |
+| separator         | ALL                          | Sets the color for lines separating rows.                           |
+| circle            | ALL                          | Not enabled at the moment.                                           |
+| letter            | ALL                          | Sets the color for row titles.                                       |
+| edit              | ALL                          | Sets the color for text editing titles of a row.                     |
+| editStyle         | ALL                          | Not enabled at the moment.                                           |
+| titleToolbar      | ALL                          | Sets the color for toolbar component titles.                         |
+| backgroundToolbar | ALL                          | Sets the color for the background of the row container.             |
+| styleContentHour  | ROW_CALENDAR, ROW_CALENDAR_HOUR | Sets the color for the background of the container for date or time assignment activities. |
+| backgroundContent | ALL                          | Sets the color for the background of the row container.             |
+| imageEmpty        | ALL                          | Sets the background color for image containers.                      |
+
+#### Description of categorized parameters for Size
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| title             | ALL                   | Allows assigning the title size.                                    |
+| description       | ALL                   | Allows assigning the description size.                              |
+| letter            | ALL                   | Not enabled at the moment.                                           |
+| edit              | ALL                   | Allows assigning the size of editable texts.                         |
+| icon              | ALL                   | Allows assigning the size of icons.                                  |
+| row               | ALL                   | Allows assigning the general size of the row.                         |
+
+#### Description of categorized parameters for Padding
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| Content           | ALL                   | Sets spaces inside the entire container equally.                    |
+| Content.top       | ALL                   | Sets spaces inside affecting the top part of the container.         |
+| Content.bottom    | ALL                   | Sets spaces inside affecting the bottom part of the container.      |
+| Content.left      | ALL                   | Sets spaces inside affecting the left part of the container.        |
+| Content.right     | ALL                   | Sets spaces inside affecting the right part of the container.       |
+
+#### Description of Categorized Parameters for Margin
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| content           | ALL                   | Sets spaces outside the entire container equally.                   |
+| content.Top       | ALL                   | Sets spaces outside affecting the top part of the container.        |
+
+#### Description of Categorized Parameters for Alignment
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| text              | ALL                   | Aligns text on different lines, either center, left, or right of the container. |
+| description       | ALL                   | Aligns the description on different lines, either center, left, or right of the container. |
+
+#### Description of categorized parameters for Visibility
+
+| Parameter         | Compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| title             | ALL                   | Controls the visibility of the title (Visible, Invisible, or Gone depending on the context). |
+| description       | ALL                   | Controls the visibility of the description (Visible, Invisible, or Gone depending on the context). |
+| icon              | ALL                   | Controls the visibility of the icon (Visible, Invisible, or Gone depending on the context). |
+| check             | ALL                   | Controls the visibility of the checkbox (Visible, Invisible, or Gone depending on the context). |
+| editText          | ALL                   | Controls the visibility of the editable text (Visible, Invisible, or Gone
 
 # Contribution
 
@@ -240,7 +353,7 @@ You are most welcome to contribute to this project!
 *  Give me a [Star](https://github.com/LordSaac/FormSimpleIGB) &nbsp; :star: 
 
 
-## Licence
+# Licence
 
 Copyright 2024 José I. Gutiérrez B.
 
