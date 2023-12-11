@@ -22,8 +22,19 @@ Fast & Easy Form: is a builder forms for your Android project, with this library
     - [Composable](#composable)
 - [Documentation](#documentation)
   - [Functions](#functions)
-  - [Parameters & Compatibility](#parameters-and-compatibility)
-    - [General parameters](#description-of-general-parameters)
+     - [General parameters](#description-of-general-parameters)
+  - [Rows description](#rows-description)
+    - [ROW_TITLE](#row_title)
+    - [ROW_ACTIVITY](#row_activity)
+    - [ROW_MULTIPLE_CHECK_LIST](#row_multiple_check_list)
+    - [ROW_CHECK](#row_check)
+    - [ROW_EDIT](#row_edit)
+    - [ROW_SINGLE_CHECK_LIST](#row_single_check_list)
+    - [ROW_CALENDAR_HOUR](#row_calendar_hour)
+    - [ROW_CALENDAR](#row_calendar)
+    - [ROW_INFO](#row_info)
+    - [ROW_ON_CLICK](#row_on_click)
+  - [Parameters and compatibility per row](#parameters-and-compatibility-per-row)
     - [Categorized parameters used for SetText](#description-of-categorized-parameters-used-for-settext)
     - [Categorized parameters for Lists](#description-of-categorized-parameters-for-lists)
     - [Categorized parameters for EditText](#description-of-categorized-parameters-for-edittext)
@@ -230,11 +241,248 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 | updateRow       | Updates a row or section of the form.       |  ``` easyForm.tool.updateRow("Tag Id",ResponseFormsIGB())   ```              |
 | eventChecked    | Handles item verification or selection events. | ``` easyForm.tool.eventChecked(false,0)  ```          |
 
-### Parameters and compatibility 
+### Rows description
+
+#### ROW_TITLE
+
+It is a property to invoke rows within the form to declare the section's title below it. 
+
+##### Example code
+
+```kotlin
+
+  Row(ROW_TITLE) { // <--- Add Title
+
+            setText.title = "Getting started" //<--- add your title name
+
+            setColor.title = R.color.colorPrimary_aar
+        }
+
+```
+
+#### ROW_ACTIVITY
+
+It's a row that functions to make direct calls to other windows within the project. It is fully configurable and easy to use.
+
+##### Example code
+
+```kotlin
+
+   Row(ROW_ACTIVITY){ // <-- Here Call Any activity
+            title = "Test Activity #1"//<-- title .
+            activity = ExampleActivity::class.java // <-- Add your activity
+        }
+
+```
+
+#### ROW_MULTIPLE_CHECK_LIST
+
+This functionality allows selecting more than one option, making it great for multiple-choice questionnaires.
+
+
+##### Example code
+
+```kotlin
+
+   Row(ROW_MULTIPLE_CHECK_LIST){
+
+                setText.tag = "002"
+                setText.title = "Favorite Fruit"
+
+
+                checkList{
+
+                    option(){
+                        text = "Banana"
+
+                    }
+
+                    option(){
+                        text = "Apple"
+                    }
+
+                    option(){
+                        text = "Peach"
+                    }
+
+                    option(){
+                        text = "Papaya"
+
+                    }
+
+                }
+
+                validation = true
+
+            }
+
+
+```
+
+#### ROW_CHECK
+
+Specifically for rows needing quick validation, like accepting terms or specific questions.
+
+##### Example code
+
+```kotlin
+
+     Row(ROW_CHECK){
+
+                setText.text= "Do you like job?" // Add text for the text
+                setText.tag = tagCheck //tag for identification of the row
+                checked = true // Initialize check in false or true
+
+            }
+
+```
+
+#### ROW_EDIT
+
+For rows requiring various text editions, such as numbers, phones, emails, etc.
+
+##### Example code
+
+```kotlin
+
+      Row(ROW_EDIT){
+
+                setText.title = "Cell Phone"// title row.
+                inputTypeEditText = InputType.TYPE_CLASS_PHONE //  To choose type EDITTEXT (https://developer.android.com/reference/android/widget/EditText)
+            }
+
+```
+
+#### ROW_SINGLE_CHECK_LIST
+
+Enables choosing a single option from several available choices.
+
+##### Example code
+
+```kotlin
+
+       Row(ROW_SINGLE_CHECK_LIST){
+
+                setText.tag = "007"
+                setText.title = "Favorite Movie"
+
+
+                checkList{
+
+                    option(){
+                        text = "Action"
+
+                    }
+
+                    option(){
+                        text = "Drama"
+                    }
+
+                    option(){
+                        text = "Comedy"
+                    }
+
+                    option(){
+                        text = "Fantasy"
+
+                    }
+
+                }
+
+                validation = true
+
+            }
+
+```
+
+#### ROW_CALENDAR_HOUR
+
+Simplifies time insertion, allowing hour insertions without manual programming.
+
+##### Example code
+
+```kotlin
+
+     Row(ROW_CALENDAR_HOUR){
+
+                setText.title = "Start hour"
+                validation = true
+
+            }
+
+```
+
+#### ROW_CALENDAR
+
+Assists in entering specific dates, like the date of birth. Simplifies custom calendar programming for forms.
+
+##### Example code
+
+```kotlin
+
+         Row(ROW_CALENDAR){
+                
+                setText.title = "Birthday"
+                validation = true
+
+            }
+
+```
+
+#### ROW_ON_CLICK
+
+Use this row for a button actions for config any action.
+
+##### Example code
+
+```kotlin
+
+       Row(ROW_ON_CLICK){
+
+                setText.title = "Click me!"
+
+                onClick {
+
+                    val builder = AlertDialog.Builder(context)
+                    builder.setTitle("Hello")
+                        .setMessage("I'm here")
+                        .setPositiveButton("OK") { dialog, _ ->
+                            // Do something when OK button is clicked
+                            dialog.dismiss()
+                        }
+                        .setNegativeButton("Cancel") { dialog, _ ->
+                            // Do something when Cancel button is clicked
+                            dialog.dismiss()
+                        }
+                        .show()
+
+                }
+
+            }
+
+```
+
+#### ROW_INFO
+
+Primarily used to display information without offering special functionalities.
+
+##### Example code
+
+```kotlin
+
+    Row(ROW_INFO){
+            setText.title = "Licence"// title row.
+            setText.text= "Copyright 2024 José I. Gutiérrez B."
+        }
+
+```
+
+
+### Parameters and compatibility per row
 
 #### Description of general parameters
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility       | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | Activity          | ROW_ACTIVITY          | Used to invoke the desired activity.                                 |
 | bundleActivity    | ROW_ACTIVITY          | Used to send information between activities.                         |
@@ -251,7 +499,7 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 
 #### Description of categorized parameters used for SetText
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | title             | ALL                   | Assigns text for the title.                                          |
 | tag               | ALL                   | Assigns a unique identifier.                                         |
@@ -263,27 +511,27 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 
 #### Description of categorized parameters for Lists
 
-| Parameter         | Compatibility               | Description                                                         |
+| Parameter         | Row compatibility               | Description                                                         |
 |-------------------|------------------------------|---------------------------------------------------------------------|
 | options           | ROW_SINGLE_CHECK_LIST, ROW_MULTIPLE_CHECK_LIST | Assigns special lists to choose from one or many options, depending on the list type. |
 | arrayDates        | ROW_CALENDAR                | Assigns a special list of dates to delimit dates between weeks.     |
 
 #### Description of categorized parameters for EditText
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | isEditable        | ROW_EDIT              | Sets whether the data can be edited by the user.                    |
 
 #### Description of categorized parameters for Animations
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | intentEnter       | ROW_ACTIVITY          | Assigns an animation for opening an activity.                       |
 | intentExit        | ROW_ACTIVITY          | Assigns an animation for closing an activity.                       |
 
 #### Description of categorized parameters for Colors
 
-| Parameter         | Compatibility               | Description                                                         |
+| Parameter         | Row compatibility               | Description                                                         |
 |-------------------|------------------------------|---------------------------------------------------------------------|
 | title             | ALL                          | Sets the color for row titles.                                       |
 | descriptions      | ALL                          | Sets the color for row descriptions.                                 |
@@ -301,7 +549,7 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 
 #### Description of categorized parameters for Size
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | title             | ALL                   | Allows assigning the title size.                                    |
 | description       | ALL                   | Allows assigning the description size.                              |
@@ -312,7 +560,7 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 
 #### Description of categorized parameters for Padding
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | Content           | ALL                   | Sets spaces inside the entire container equally.                    |
 | Content.top       | ALL                   | Sets spaces inside affecting the top part of the container.         |
@@ -322,21 +570,21 @@ fun ComposeScreen(context:Context,customForm: EasyForm) {
 
 #### Description of Categorized Parameters for Margin
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | content           | ALL                   | Sets spaces outside the entire container equally.                   |
 | content.Top       | ALL                   | Sets spaces outside affecting the top part of the container.        |
 
 #### Description of Categorized Parameters for Alignment
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | text              | ALL                   | Aligns text on different lines, either center, left, or right of the container. |
 | description       | ALL                   | Aligns the description on different lines, either center, left, or right of the container. |
 
 #### Description of categorized parameters for Visibility
 
-| Parameter         | Compatibility        | Description                                                         |
+| Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | title             | ALL                   | Controls the visibility of the title (Visible, Invisible, or Gone depending on the context). |
 | description       | ALL                   | Controls the visibility of the description (Visible, Invisible, or Gone depending on the context). |
