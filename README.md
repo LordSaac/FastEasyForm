@@ -1,6 +1,6 @@
 # Fast & Easy Forms 
 
-Simple List IGB is new a dynamic template for creating easy forms for the Android kotlin developer. Combine any design and adapt this library in your final user interface.
+Fast & Easy Form: is a builder forms for your Android project, with this library you will can build forms more fast and easy, using a clear structure for implement in your proyect. This solution offer a different tools like: validations, get data, update data and events listeners.
 
 <p align="center">
 
@@ -9,159 +9,603 @@ Simple List IGB is new a dynamic template for creating easy forms for the Androi
 |<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103520.png">|<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103524.png">|
 </p>
 
-## Type Rows: 
-*	**ROW_TITLE:** use this row for add sections and separators. 
+<!-- TOC -->
 
-*	**ROW_ACTIVITY:** here call any activity. 
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+  - [Settings Gradle](#settings-gradle)
+  - [Dependencie](#dependencie)
+- [Getting Started](#getting-started)
+  - [Example MainActivity](#example-mainactivity)
+  - [Example ComposeActivity](#example-composeactivity)
+    - [Composable](#composable)
+- [Documentation](#documentation)
+  - [Functions](#functions)
+     - [General parameters](#description-of-general-parameters)
+  - [Rows description](#rows-description)
+    - [ROW_TITLE](#row_title)
+    - [ROW_ACTIVITY](#row_activity)
+    - [ROW_MULTIPLE_CHECK_LIST](#row_multiple_check_list)
+    - [ROW_CHECK](#row_check)
+    - [ROW_EDIT](#row_edit)
+    - [ROW_SINGLE_CHECK_LIST](#row_single_check_list)
+    - [ROW_CALENDAR_HOUR](#row_calendar_hour)
+    - [ROW_CALENDAR](#row_calendar)
+    - [ROW_INFO](#row_info)
+    - [ROW_ON_CLICK](#row_on_click)
+  - [Parameters and compatibility per row](#parameters-and-compatibility-per-row)
+    - [Categorized parameters used for SetText](#description-of-categorized-parameters-used-for-settext)
+    - [Categorized parameters for Lists](#description-of-categorized-parameters-for-lists)
+    - [Categorized parameters for EditText](#description-of-categorized-parameters-for-edittext)
+    - [Categorized parameters for Animations](#description-of-categorized-parameters-for-animations)
+    - [Categorized parameters for Colors](#description-of-categorized-parameters-for-colors)
+    - [Categorized parameters for Size](#description-of-categorized-parameters-for-size)
+    - [Categorized parameters for Padding](#description-of-categorized-parameters-for-padding)
+    - [Categorized Parameters for Margin](#description-of-categorized-parameters-for-margin)
+    - [Categorized Parameters for Alignment](#description-of-categorized-parameters-for-alignment)
+    - [Categorized parameters for Visibility](#description-of-categorized-parameters-for-visibility)
 
-*	**ROW_MULTIPLE_CHECK_LIST:** use this row for selected more of one options.
+- [Licence](#licence)
+<!-- /TOC -->
 
-*	**ROW_SINGLE_CHECK_LIST:** select only one options.
+## Features
 
-*	**ROW_CHECK:** use this list for easy check.
+- [x] Reduce development time for forms
+- [x] Create simple and user-friendly forms
+- [x] Implement row-level validation for the form fields
+- [x] Ability to update rows/data within the form
+- [x] Retrieve data based on a unique identifier
+- [x] Implement interactive listeners for form elements
+- [x] Scroll view form
+- [x] Customize text colors
+- [x] Customize icons
+- [x] Change size text
+- [x] Support for Jetpack Compose
+- [x] Use Java 11
 
-*	**ROW_EDIT:** use this row for editing text.
+## Requirements
 
-*	**ROW_CALENDAR_HOUR:** use for to select hours and minutes.
+Fast & Easy Form is written in Kotlin & Java and compatible with min Sdk version 26 and min version Java 11
 
-*	**ROW_CALENDAR:** use basic calendar for your forms.
+## Installation
 
-*	**ROW_INFO:** add basic information for your descriptions.  
+### Settings Gradle
 
-*  [For more info, see you Wiki.](https://github.com/LordSaac/FormSimpleIGB/wiki)
+Fast & Easy Form is available through [Github](github.com). To install
+it, simply add the following line to your settings gradle:
 
-## Descriptions attributes: 
+```gradle
+allprojects {
+    repositories {
 
-*	**title:** add title name.
-
-*	**text:** add a description for your row
-
-*	**tag:** for identification of the row.
-
-*	**titleColor:** Add any colors for title.
-
-*	**activity:** add any class activity for your call, when the user click in the option appear the activity.
-
-*	**validation:** here validate rows important for your forms.
-
-*	**options:** is a list composite for selecting a groups options.
-
-*	**colorBackgroundToolbar:** add color in the toolbar (optional but recomendable)
-
-*	**emptyMessage:** add messsage when your list is empty.
-
-*	**imageEmpty:** Add an image for empty list (Optional)
-
-*	**checked:** Initialize check in false or true
-
-*	**inputTypeEditText:** to choose type EDITTEXT
-
-*	**maxLength:** choose the text length to text edit
-
-## Initialize Form:  
-#### Add XML Tools (Optional)
-Add this component in your XML, but is optional, you can add own Recyclerview control: 
-```
-    <com.creativity.dev.formsimple.ext.FormSimpleIGB
-            android:id="@+id/rv_main"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/button" android:layout_marginTop="0dp"
-            app:layout_constraintTop_toTopOf="parent"/>
-```
-#### Simple Form Example:  
-```
-     private fun init(){
-       Row(ROW_TITLE){ 
-            title = "Information"
-            titleColor = ContextCompat.getColor(applicationContext, R.color.colorPrimaryDark) 
-        }
-        
-       Row(ROW_EDIT){
-            title = "Firts Name" 
-        }
-
-        Row(ROW_EDIT){
-
-            title = "Lastname"
-            validation = true
-
-        }
-        
-          Row(ROW_EDIT){
-
-            title = "Correo Electronico"
-            text= "jose19.26@hotmail.com"
-            inputTypeEditText = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS 
-
-        } 
-        yourRecyclerview.initListDynamic()       
-     } 
-```
-
-#### For initialize forms add: 
-This object is very important for initialize the form: 
-```
-yourRecyclerview.initListDynamic() //Here initialize your recycler view
-```
-## Methods:
-#### Get:
-Add tag the row for getting the atributte text, checked, list options, postion. 
-```
- str =  SimpleFormsIGB.Result(tagEditAge).text 
-```
-#### Update:
-For update row insert in left the correspond tag and the right use "Set Row" for update: checked,text,position or selecting options.
-```
-   SimpleFormsIGB.UpdateRow(yourTag, SetRow {checked = true})
-```
-#### Validate:
-Validate row brands with the attribute "Validate" if the state is true. 
-```
- SimpleFormsIGB.validationForms() 
-```
-## Listener Descriptions: 
-#### FormsListenerResponse: 
-This interface detect changes in the rows, for using you need the corresponding tag row for is identification. 
-<br>
-Example:
-```
-class MainActivity : AppCompatActivity(), FormsListenerIGB {
- 
- // Body Activity
- 
- override fun FormsListenerResponse(obj: ResponseFormsIGB) {
-
-        if(obj.tag.equals(myTag)){
-            AlertDialogManager.simpleAlerts(this,"Alert","Hello, i here")
-        }
+        mavenLocal()
 
     }
-   
- }
-```
-<br>
-
-# Gradle:
-
-dependencies {
-<br>
-` implementation 'com.jgb.lordsaac.igb.formsimpleigb:simpleformigb:0.0.1'`
- <br>
 }
+```
+
+### Dependencie
+
+For [dependencie version](https://github.com/LordSaac/FormSimpleIGB/packages/), add the following to your `gradle`:
+
+```gradle
+implementation 'com.form.jigb:formsimple:v0.3.4'
+```
+
+## Getting Started
+
+###  Example MainActivity
+
+For classic class activity follow the next code example.
+
+```kotlin
+class MainActivity : AppCompatActivity(), FormsListenerIGB {
+
+    private lateinit var rv_main: RecyclerView // Add RecyclerView into xml
+
+    private lateinit var easyForm: EasyForm
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        this.easyForm = EasyForm(this)
+
+        this.rv_main = findViewById(R.id.rv_main)
+
+        this.init()
+
+    }
+
+    private fun init(){
+
+    /* Build here */
+
+        Row(ROW_TITLE) {
+
+            setText.title = "Getting started"
+
+            setColor.title = R.color.colorPrimary_aar
+        }
+
+        Row(ROW_INFO) {
+
+            setText.title = "Hello word!"
+
+            setColor.title = R.color.colorGray
+
+        }
+
+
+        easyForm.start(rv_main)
+
+    }
+
+
+
+    override fun actionFormResponse(result: ResponseFormsIGB) {
+
+
+
+    }
+
+}
+```
+
+### Example ComposeActivity
+
+For projects JetPack Compose follow the next code example.
+
+```kotlin
+class ComposeActivity : ComponentActivity() {
+
+    private val context = this
+
+    private lateinit var easyForm: EasyForm
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        this.easyForm = EasyForm(this)
+
+        setContent {
+            FormSimpleIGBTheme {
+                // A surface container using the 'background' color from the theme
+
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+
+                    ComposeScreen(context,easyForm)
+
+                }
+            }
+        }
+    }
+
+}
+
+```
+#### Composable
+
+Config the composable code into activity or preview screen.
+
+```kotlin
+
+@Composable
+fun ComposeScreen(context:Context,customForm: EasyForm) {
+
+    EasyFormCompose(
+        customForm = customForm,
+        modifier = Modifier.fillMaxWidth(),
+        rows = {
+
+         
+        Row(ROW_TITLE) {
+
+            setText.title = "Getting started"
+
+            setColor.title = R.color.colorPrimary_aar
+        }
+
+        Row(ROW_INFO) {
+
+            setText.title = "Hello word!"
+
+            setColor.title = R.color.colorGray
+
+        }
+   
+         
+        }
+
+    )
+
+}
+
+```
+
+## Documentation
+
+### Functions
+
+| Functions       | Descriptions                                       | Code      |
+|-----------------|---------------------------------------------------|-------------|
+| start           | Starts generating the form in the user interface. |     ``` easyForm.start(your_reciclerview)     ```        |
+| validateAll     |Valid all fields of the form.           |       ``` easyForm.tool.validateAll()   ```        |
+| validateByTag   | Validates a specific field identified by a label. |   ``` easyForm.tool.validateByTag("Tag Id")   ```            |
+| getResultByTag  | Gets the result of a specific field by its label. | ``` easyForm.tool.getResultByTag("Tag Id")   ```           |
+| getResult       | Gets the overall result of the form.        |  ``` easyForm.tool.getResultAll()   ```            |
+| updateRow       | Updates a row or section of the form.       |  ``` easyForm.tool.updateRow("Tag Id",ResponseFormsIGB())   ```              |
+| eventChecked    | Handles item verification or selection events. | ``` easyForm.tool.eventChecked(false,0)  ```          |
+
+### Rows description
+
+#### ROW_TITLE
+
+It is a property to invoke rows within the form to declare the section's title below it. 
+
+##### Example code
+
+```kotlin
+
+  Row(ROW_TITLE) { // <--- Add Title
+
+            setText.title = "Getting started" //<--- add your title name
+
+            setColor.title = R.color.colorPrimary_aar
+        }
+
+```
+
+#### ROW_ACTIVITY
+
+It's a row that functions to make direct calls to other windows within the project. It is fully configurable and easy to use.
+
+##### Example code
+
+```kotlin
+
+   Row(ROW_ACTIVITY){ // <-- Here Call Any activity
+            title = "Test Activity #1"//<-- title .
+            activity = ExampleActivity::class.java // <-- Add your activity
+        }
+
+```
+
+#### ROW_MULTIPLE_CHECK_LIST
+
+This functionality allows selecting more than one option, making it great for multiple-choice questionnaires.
+
+
+##### Example code
+
+```kotlin
+
+   Row(ROW_MULTIPLE_CHECK_LIST){
+
+                setText.tag = "002"
+                setText.title = "Favorite Fruit"
+
+
+                checkList{
+
+                    option(){
+                        text = "Banana"
+
+                    }
+
+                    option(){
+                        text = "Apple"
+                    }
+
+                    option(){
+                        text = "Peach"
+                    }
+
+                    option(){
+                        text = "Papaya"
+
+                    }
+
+                }
+
+                validation = true
+
+            }
+
+
+```
+
+#### ROW_CHECK
+
+Specifically for rows needing quick validation, like accepting terms or specific questions.
+
+##### Example code
+
+```kotlin
+
+     Row(ROW_CHECK){
+
+                setText.text= "Are you like you job?" // Add text for the text
+                setText.tag = "0012" //tag for identification of the row
+                checked = true // Initialize check in false or true
+
+            }
+
+```
+
+#### ROW_EDIT
+
+For rows requiring various text editions, such as numbers, phones, emails, etc.
+
+##### Example code
+
+```kotlin
+
+      Row(ROW_EDIT){
+
+                setText.title = "Cell Phone"// title row.
+                inputTypeEditText = InputType.TYPE_CLASS_PHONE //  To choose type EDITTEXT (https://developer.android.com/reference/android/widget/EditText)
+            }
+
+```
+
+#### ROW_SINGLE_CHECK_LIST
+
+Enables choosing a single option from several available choices.
+
+##### Example code
+
+```kotlin
+
+       Row(ROW_SINGLE_CHECK_LIST){
+
+                setText.tag = "007"
+                setText.title = "Favorite Movie"
+
+
+                checkList{
+
+                    option(){
+                        text = "Action"
+
+                    }
+
+                    option(){
+                        text = "Drama"
+                    }
+
+                    option(){
+                        text = "Comedy"
+                    }
+
+                    option(){
+                        text = "Fantasy"
+
+                    }
+
+                }
+
+                validation = true
+
+            }
+
+```
+
+#### ROW_CALENDAR_HOUR
+
+Simplifies time insertion, allowing hour insertions without manual programming.
+
+##### Example code
+
+```kotlin
+
+     Row(ROW_CALENDAR_HOUR){
+
+                setText.title = "Start hour"
+                validation = true
+
+            }
+
+```
+
+#### ROW_CALENDAR
+
+Assists in entering specific dates, like the date of birth. Simplifies custom calendar programming for forms.
+
+##### Example code
+
+```kotlin
+
+         Row(ROW_CALENDAR){
+                
+                setText.title = "Birthday"
+                validation = true
+
+            }
+
+```
+
+#### ROW_ON_CLICK
+
+Use this row for a button actions for config any action.
+
+##### Example code
+
+```kotlin
+
+       Row(ROW_ON_CLICK){
+
+                setText.title = "Click me!"
+
+                onClick {
+
+                    val builder = AlertDialog.Builder(context)
+                    builder.setTitle("Hello")
+                        .setMessage("I'm here")
+                        .setPositiveButton("OK") { dialog, _ ->
+                            // Do something when OK button is clicked
+                            dialog.dismiss()
+                        }
+                        .setNegativeButton("Cancel") { dialog, _ ->
+                            // Do something when Cancel button is clicked
+                            dialog.dismiss()
+                        }
+                        .show()
+
+                }
+
+            }
+
+```
+
+#### ROW_INFO
+
+Primarily used to display information without offering special functionalities.
+
+##### Example code
+
+```kotlin
+
+    Row(ROW_INFO){
+            setText.title = "Licence"// title row.
+            setText.text= "Copyright 2024 José I. Gutiérrez B."
+        }
+
+```
+
+
+### Parameters and compatibility per row
+
+#### Description of general parameters
+
+| Parameter         | Row compatibility       | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| Activity          | ROW_ACTIVITY          | Used to invoke the desired activity.                                 |
+| bundleActivity    | ROW_ACTIVITY          | Used to send information between activities.                         |
+| checked           | ALL                   | Declares that the field in this row needs validation before processing. |
+| isAvailable       | ROW_EDIT              | Specifies if the displayed data is enabled for editing.             |
+| isSingleList      | ROW_SINGLE_CHECK_LIST | Notifies the list that the selection will be one-to-many.            |
+| setDateFormat     | ROW_CALENDAR, ROW_CALENDAR_HOUR | Sets the desired date format for display.                   |
+| maxLength         | ROW_EDIT              | Sets the maximum number of characters the user can input.           |
+| inputTypedEditText| ROW_EDIT              | Configures the keyboard type for data capture.                      |
+| gravityTitle      | ALL                   | Adjusts the position of the title.                                   |
+| universalContentGravity | ALL              | Adjusts the position of the container confirming the entire row's body. |
+| isEndableImageSelected | ROW_SINGLE_CHECK_LIST | Enables or disables checkboxes.                                   |
+| TypeRow           | ALL                   | Assigns the type of row to be built.                                 |
+
+#### Description of categorized parameters used for SetText
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| title             | ALL                   | Assigns text for the title.                                          |
+| tag               | ALL                   | Assigns a unique identifier.                                         |
+| text              | ALL                   | Assigns a description below the title.                               |
+| edtHint           | ROW_EDIT              | Displays informative text inside the edit field.                    |
+| comment           | ROW_EDIT              | Adds special comments within the row.                                |
+| icon              | ALL                   | Used to assign icons using Font Awesome codes.                       |
+| emptyMessages     | ALL                   | Displays informative text indicating that this field must be filled.|
+
+#### Description of categorized parameters for Lists
+
+| Parameter         | Row compatibility               | Description                                                         |
+|-------------------|------------------------------|---------------------------------------------------------------------|
+| options           | ROW_SINGLE_CHECK_LIST, ROW_MULTIPLE_CHECK_LIST | Assigns special lists to choose from one or many options, depending on the list type. |
+| arrayDates        | ROW_CALENDAR                | Assigns a special list of dates to delimit dates between weeks.     |
+
+#### Description of categorized parameters for EditText
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| isEditable        | ROW_EDIT              | Sets whether the data can be edited by the user.                    |
+
+#### Description of categorized parameters for Animations
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| intentEnter       | ROW_ACTIVITY          | Assigns an animation for opening an activity.                       |
+| intentExit        | ROW_ACTIVITY          | Assigns an animation for closing an activity.                       |
+
+#### Description of categorized parameters for Colors
+
+| Parameter         | Row compatibility               | Description                                                         |
+|-------------------|------------------------------|---------------------------------------------------------------------|
+| title             | ALL                          | Sets the color for row titles.                                       |
+| descriptions      | ALL                          | Sets the color for row descriptions.                                 |
+| icons             | ALL                          | Sets the color for row icons.                                        |
+| separator         | ALL                          | Sets the color for lines separating rows.                           |
+| circle            | ALL                          | Not enabled at the moment.                                           |
+| letter            | ALL                          | Sets the color for row titles.                                       |
+| edit              | ALL                          | Sets the color for text editing titles of a row.                     |
+| editStyle         | ALL                          | Not enabled at the moment.                                           |
+| titleToolbar      | ALL                          | Sets the color for toolbar component titles.                         |
+| backgroundToolbar | ALL                          | Sets the color for the background of the row container.             |
+| styleContentHour  | ROW_CALENDAR, ROW_CALENDAR_HOUR | Sets the color for the background of the container for date or time assignment activities. |
+| backgroundContent | ALL                          | Sets the color for the background of the row container.             |
+| imageEmpty        | ALL                          | Sets the background color for image containers.                      |
+
+#### Description of categorized parameters for Size
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| title             | ALL                   | Allows assigning the title size.                                    |
+| description       | ALL                   | Allows assigning the description size.                              |
+| letter            | ALL                   | Not enabled at the moment.                                           |
+| edit              | ALL                   | Allows assigning the size of editable texts.                         |
+| icon              | ALL                   | Allows assigning the size of icons.                                  |
+| row               | ALL                   | Allows assigning the general size of the row.                         |
+
+#### Description of categorized parameters for Padding
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| Content           | ALL                   | Sets spaces inside the entire container equally.                    |
+| Content.top       | ALL                   | Sets spaces inside affecting the top part of the container.         |
+| Content.bottom    | ALL                   | Sets spaces inside affecting the bottom part of the container.      |
+| Content.left      | ALL                   | Sets spaces inside affecting the left part of the container.        |
+| Content.right     | ALL                   | Sets spaces inside affecting the right part of the container.       |
+
+#### Description of Categorized Parameters for Margin
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| content           | ALL                   | Sets spaces outside the entire container equally.                   |
+| content.Top       | ALL                   | Sets spaces outside affecting the top part of the container.        |
+
+#### Description of Categorized Parameters for Alignment
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| text              | ALL                   | Aligns text on different lines, either center, left, or right of the container. |
+| description       | ALL                   | Aligns the description on different lines, either center, left, or right of the container. |
+
+#### Description of categorized parameters for Visibility
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| title             | ALL                   | Controls the visibility of the title (Visible, Invisible, or Gone depending on the context). |
+| description       | ALL                   | Controls the visibility of the description (Visible, Invisible, or Gone depending on the context). |
+| icon              | ALL                   | Controls the visibility of the icon (Visible, Invisible, or Gone depending on the context). |
+| check             | ALL                   | Controls the visibility of the checkbox (Visible, Invisible, or Gone depending on the context). |
+| editText          | ALL                   | Controls the visibility of the editable text (Visible, Invisible, or Gone
+
 # Contribution
 
 You are most welcome to contribute to this project!
 
 *  Buy me a  [Coffee](https://paypal.me/LordSaac?locale.x=es_XC)  &nbsp; :coffee:
 
-*  Give me a [Star](https://github.com/LordSaac/FormSimpleIGB) &nbsp; :star: 
+*  Give me a [Star](https://github.com/LordSaac/FormSimpleIGB) &nbsp; :star:
 
-<h2>Release December 28, 2018</h2>
+  
 
-## Licence
 
-Copyright 2018 Isaac G. Banda
+# Licence
+
+Copyright 2024 José I. Gutiérrez B.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
