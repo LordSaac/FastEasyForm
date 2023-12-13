@@ -90,7 +90,7 @@ allprojects {
 For [dependencie version](https://github.com/LordSaac/FormSimpleIGB/packages/), add the following to your `gradle`:
 
 ```gradle
-implementation 'com.form.jigb:formsimple:v0.3.3'
+implementation 'com.form.jigb:formsimple:v0.3.4'
 ```
 
 ## Getting Started
