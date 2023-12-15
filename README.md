@@ -6,7 +6,7 @@ Fast & Easy Form: is a builder forms for your Android project, with this library
 
 |||
 |:----:|:----:|
-|<img  height="568" width="320" src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/Screenshot_20231214_134359.png">|<img  height="568" width="320" src="https://github.com/LordSaac/FormSimpleIGB/blob/master/Media/Screenshot_20181224-103524.png">|
+|<img  height="568" width="320" src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/Screenshot_20231214_134359.png">|<img  height="568" width="320" src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/Screen_recording_20231214_205436.gif">|
 </p>
 
 <!-- TOC -->
