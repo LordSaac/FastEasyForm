@@ -45,35 +45,35 @@ class FormExampleThreeActivity : AppCompatActivity() {
 
             Row(ROW_EDIT) {
                 setText.title = "Full Name"
-                setText.tag = "fullName"
+                tag = "fullName"
             }
 
             Row(ROW_CALENDAR) {
                 setText.title = "Date of Birth"
-                setText.tag = "dateOfBirth"
+                tag = "dateOfBirth"
                 validation = true
             }
 
             Row(ROW_EDIT) {
                 setText.title = "Phone Number"
-                setText.tag = "phoneNumber"
+                tag = "phoneNumber"
                 inputTypeEditText = InputType.TYPE_CLASS_PHONE
             }
 
             Row(ROW_EDIT) {
                 setText.title = "Email Address"
-                setText.tag = "emailAddress"
+                tag = "emailAddress"
                 inputTypeEditText = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
             }
 
             Row(ROW_EDIT) {
                 setText.title = "Address"
-                setText.tag = "address"
+                tag = "address"
             }
 
             Row(ROW_SINGLE_CHECK_LIST) {
                 setText.title = "Marital Status"
-                setText.tag = "maritalStatus"
+                tag = "maritalStatus"
 
                 checkList {
                     option { text = "Single" }
@@ -88,7 +88,7 @@ class FormExampleThreeActivity : AppCompatActivity() {
 
             Row(ROW_CHECK) {
                 setText.text = "Do you have children?"
-                setText.tag = "hasChildren"
+                tag = "hasChildren"
             }
 
             start(rv_main)

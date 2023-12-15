@@ -45,7 +45,7 @@ class FormExampleOneActivity : AppCompatActivity(), FormsListenerIGB {
         // Question 1: Favorite movie genre
         Row(ROW_SINGLE_CHECK_LIST) {
             setText.title = "Favorite movie genre"
-            setText.tag = "favoriteGenre"
+            tag = "favoriteGenre"
 
             checkList {
                 option { text = "Action" }
@@ -62,13 +62,13 @@ class FormExampleOneActivity : AppCompatActivity(), FormsListenerIGB {
         // Question 2: Do you prefer watching movies in 3D?
         Row(ROW_CHECK) {
             setText.text = "Do you prefer watching movies in 3D?"
-            setText.tag = "3DPreference"
+            tag = "3DPreference"
         }
 
         // Question 3: How often do you visit the cinema?
         Row(ROW_SINGLE_CHECK_LIST) {
             setText.title = "Frequency of cinema visits"
-            setText.tag = "cinemaFrequency"
+            tag = "cinemaFrequency"
 
             checkList {
                 option { text = "Once a month" }
@@ -84,7 +84,7 @@ class FormExampleOneActivity : AppCompatActivity(), FormsListenerIGB {
         // Question 4: What snacks do you prefer during movies?
         Row(ROW_MULTIPLE_CHECK_LIST) {
             setText.title = "Preferred snacks during movies"
-            setText.tag = "preferredSnacks"
+            tag = "preferredSnacks"
 
             checkList {
                 option { text = "Popcorn" }
@@ -101,7 +101,7 @@ class FormExampleOneActivity : AppCompatActivity(), FormsListenerIGB {
         // Question 5: What aspects do you value the most when choosing a movie?
         Row(ROW_MULTIPLE_CHECK_LIST) {
             setText.title = "Most valued aspects when choosing a movie"
-            setText.tag = "valuedAspects"
+            tag = "valuedAspects"
 
             checkList {
                 option { text = "Storyline" }

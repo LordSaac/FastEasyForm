@@ -142,7 +142,7 @@ fun ComposeScreen(context: Context, customForm: EasyForm) {
             }
 
             Row(ROW_MULTIPLE_CHECK_LIST){
-                setText.tag = tagFoodList // <---  tag for identification of the row
+                tag = tagFoodList // <---  tag for identification of the row
                 setText.title = "Main menu"   // <---  Your title
                 // Personalize your message empty
                 setText.emptyMessages = "No encontre nada tio!" // Your message for empty list (OPTIONAL)
@@ -162,7 +162,7 @@ fun ComposeScreen(context: Context, customForm: EasyForm) {
             Row(ROW_CHECK){
 
                 setText.text= "Do you like job?" // Add text for the text
-                setText.tag = tagCheck //tag for identification of the row
+                tag = tagCheck //tag for identification of the row
                 checked = false // Initialize check in false or true
 
             }
@@ -171,7 +171,7 @@ fun ComposeScreen(context: Context, customForm: EasyForm) {
 
                 setText.text= "Are you like this librery?" // Add text fot he text
                 checked = false // Initialize check in false or true
-                setText.tag = "like007"
+                tag = "like007"
 
             }
 
@@ -216,7 +216,7 @@ fun ComposeScreen(context: Context, customForm: EasyForm) {
 
             Row(ROW_EDIT){
 
-                setText.tag =  tagEditAge
+                tag =  tagEditAge
                 setText.title = "Age"
                 maxLength = 2
                 inputTypeEditText = InputType.TYPE_CLASS_NUMBER

@@ -47,7 +47,7 @@ class FormExampleTwoActivity : AppCompatActivity(), FormsListenerIGB {
             // Question 1: Favorite cuisine type
             Row(ROW_SINGLE_CHECK_LIST) {
                 setText.title = "Favorite cuisine type"
-                setText.tag = "favoriteCuisine"
+                tag = "favoriteCuisine"
 
                 checkList {
                     option { text = "Italian" }
@@ -64,13 +64,13 @@ class FormExampleTwoActivity : AppCompatActivity(), FormsListenerIGB {
             // Question 2: Do you prefer vegetarian/vegan options?
             Row(ROW_CHECK) {
                 setText.text = "Do you prefer vegetarian/vegan options?"
-                setText.tag = "vegetarianPreference"
+                tag = "vegetarianPreference"
             }
 
             // Question 3: How often do you dine out?
             Row(ROW_SINGLE_CHECK_LIST) {
                 setText.title = "Frequency of dining out"
-                setText.tag = "diningFrequency"
+                tag = "diningFrequency"
 
                 checkList {
                     option { text = "Once a week" }
@@ -86,7 +86,7 @@ class FormExampleTwoActivity : AppCompatActivity(), FormsListenerIGB {
             // Question 4: Preferred dining atmosphere
             Row(ROW_SINGLE_CHECK_LIST) {
                 setText.title = "Preferred dining atmosphere"
-                setText.tag = "diningAtmosphere"
+                tag = "diningAtmosphere"
 
                 checkList {
                     option { text = "Casual" }
@@ -102,7 +102,7 @@ class FormExampleTwoActivity : AppCompatActivity(), FormsListenerIGB {
             // Question 5: What factors matter most when choosing a restaurant?
             Row(ROW_MULTIPLE_CHECK_LIST) {
                 setText.title = "Factors when choosing a restaurant"
-                setText.tag = "restaurantFactors"
+                tag = "restaurantFactors"
 
                 checkList {
                     option { text = "Food quality" }
