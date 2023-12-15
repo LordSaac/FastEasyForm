@@ -24,27 +24,27 @@ Fast & Easy Form: is a builder forms for your Android project, with this library
   - [Functions](#functions)
      - [General parameters](#description-of-general-parameters)
   - [Rows description](#rows-description)
-    - [ROW_TITLE](#row_title)
-    - [ROW_ACTIVITY](#row_activity)
-    - [ROW_MULTIPLE_CHECK_LIST](#row_multiple_check_list)
-    - [ROW_CHECK](#row_check)
-    - [ROW_EDIT](#row_edit)
-    - [ROW_SINGLE_CHECK_LIST](#row_single_check_list)
-    - [ROW_CALENDAR_HOUR](#row_calendar_hour)
-    - [ROW_CALENDAR](#row_calendar)
-    - [ROW_INFO](#row_info)
-    - [ROW_ON_CLICK](#row_on_click)
+    - [TITLE](#row_title)
+    - [ACTIVITY](#row_activity)
+    - [MULTIPLE_CHECK_LIST](#row_multiple_check_list)
+    - [CHECK](#row_check)
+    - [EDIT](#row_edit)
+    - [SINGLE_CHECK_LIST](#row_single_check_list)
+    - [CALENDAR_HOUR](#row_calendar_hour)
+    - [CALENDAR](#row_calendar)
+    - [INFO](#row_info)
+    - [ON_CLICK](#row_on_click)
   - [Parameters and compatibility per row](#parameters-and-compatibility-per-row)
-    - [Categorized parameters used for SetText](#description-of-categorized-parameters-used-for-settext)
-    - [Categorized parameters for Lists](#description-of-categorized-parameters-for-lists)
-    - [Categorized parameters for EditText](#description-of-categorized-parameters-for-edittext)
-    - [Categorized parameters for Animations](#description-of-categorized-parameters-for-animations)
-    - [Categorized parameters for Colors](#description-of-categorized-parameters-for-colors)
-    - [Categorized parameters for Size](#description-of-categorized-parameters-for-size)
-    - [Categorized parameters for Padding](#description-of-categorized-parameters-for-padding)
-    - [Categorized Parameters for Margin](#description-of-categorized-parameters-for-margin)
-    - [Categorized Parameters for Alignment](#description-of-categorized-parameters-for-alignment)
-    - [Categorized parameters for Visibility](#description-of-categorized-parameters-for-visibility)
+    - [SetText](#description-of-categorized-parameters-used-for-settext)
+    - [Lists](#description-of-categorized-parameters-for-lists)
+    - [EditText](#description-of-categorized-parameters-for-edittext)
+    - [Animations](#description-of-categorized-parameters-for-animations)
+    - [Colors](#description-of-categorized-parameters-for-colors)
+    - [Size](#description-of-categorized-parameters-for-size)
+    - [Padding](#description-of-categorized-parameters-for-padding)
+    - [Margin](#description-of-categorized-parameters-for-margin)
+    - [Alignment](#description-of-categorized-parameters-for-alignment)
+    - [Visibility](#description-of-categorized-parameters-for-visibility)
 
 - [Licence](#licence)
 <!-- /TOC -->
@@ -286,7 +286,7 @@ This functionality allows selecting more than one option, making it great for mu
 
    Row(ROW_MULTIPLE_CHECK_LIST){
 
-                setText.tag = "002"
+                tag = "002"
                 setText.title = "Favorite Fruit"
 
 
@@ -330,7 +330,7 @@ Specifically for rows needing quick validation, like accepting terms or specific
      Row(ROW_CHECK){
 
                 setText.text= "Are you like you job?" // Add text for the text
-                setText.tag = "0012" //tag for identification of the row
+                tag = "0012" //tag for identification of the row
                 checked = true // Initialize check in false or true
 
             }
@@ -363,7 +363,7 @@ Enables choosing a single option from several available choices.
 
        Row(ROW_SINGLE_CHECK_LIST){
 
-                setText.tag = "007"
+                tag = "007"
                 setText.title = "Favorite Movie"
 
 
@@ -484,6 +484,7 @@ Primarily used to display information without offering special functionalities.
 
 | Parameter         | Row compatibility       | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
+| tag               | ALL                   | Assigns a unique identifier.                                         |
 | Activity          | ROW_ACTIVITY          | Used to invoke the desired activity.                                 |
 | bundleActivity    | ROW_ACTIVITY          | Used to send information between activities.                         |
 | checked           | ALL                   | Declares that the field in this row needs validation before processing. |
@@ -502,7 +503,6 @@ Primarily used to display information without offering special functionalities.
 | Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | title             | ALL                   | Assigns text for the title.                                          |
-| tag               | ALL                   | Assigns a unique identifier.                                         |
 | text              | ALL                   | Assigns a description below the title.                               |
 | edtHint           | ROW_EDIT              | Displays informative text inside the edit field.                    |
 | comment           | ROW_EDIT              | Adds special comments within the row.                                |
