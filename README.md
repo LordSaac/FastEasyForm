@@ -594,13 +594,7 @@ Primarily used to display information without offering special functionalities.
 
 # Contribution
 
-Thank you for use this library on your project, with you collaboration this project could grow more with improvements and new idea. This project don't have support but you are most welcome to contribute.
-
-*  Buy me a  [Coffee](https://paypal.me/LordSaac?locale.x=es_XC)  &nbsp; :coffee:
-
-*  Give me a [Star](https://github.com/LordSaac/FormSimpleIGB) &nbsp; :star:
-
-  
+Thank you for use this library on your project, with you collaboration this project could grow more with improvements and new idea. This project don't have support but you are most welcome to contribute whit a [coffee](https://paypal.me/LordSaac?locale.x=es_XC)  :coffee:  or  [star](https://github.com/LordSaac/FormSimpleIGB) :star: .
 
 
 # Licence
