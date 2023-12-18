@@ -594,8 +594,23 @@ Primarily used to display information without offering special functionalities.
 
 # Contribution
 
-Thank you for use this library on your project, with you collaboration this project could grow more with improvements and new idea. This project don't have support but you are most welcome to contribute whit a [coffee](https://paypal.me/LordSaac?locale.x=es_XC)  :coffee:  or  [star](https://github.com/LordSaac/FormSimpleIGB) :star: .
+Thank you for use this library on your project, with you collaboration this project could grow more with improvements and new idea. This project don't have support but you are most welcome to contribute.
 
+<div align="center">
+
+  <figure align="center">
+      <a href="https://paypal.me/LordSaac?locale.x=es_XC">
+    <img src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/Paypal_2014_logo.png" alt="Sunset Landscape" title="Sunset Landscape" width="100" height="100" />
+      </a>
+  </figure>
+
+  <figure>
+          <a href="https://github.com/LordSaac/FastEasyForm">
+    <img src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/github-stars-logo_Color.png" alt="Mountain View" title="Mountain View" width="100" height="100" />
+      </a>
+  </figure>
+
+</div>
 
 # Licence
 
