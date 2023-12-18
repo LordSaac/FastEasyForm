@@ -280,12 +280,13 @@ fun ComposeScreen(context: Context, customForm: EasyForm) {
             }
 
             Row(ROW_ON_CLICK) {
-                setText.title = "Buy me coffee!"
-                setText.text = "Touch Me!"
+
+                setText.title = "Collaboration"
+                setText.text = " Touch here!"
                 setVisibility.description = View.VISIBLE
 
                 onClick {
-                    val url = "https://blog-jgutierrez.web.app/"
+                    val url = "https://www.paypal.com/paypalme/LordSaac?locale.x=es_XC"
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.data = Uri.parse(url)
                     context.startActivity(intent)
