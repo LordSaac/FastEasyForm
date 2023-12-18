@@ -45,6 +45,7 @@ Fast & Easy Form: is a builder forms for your Android project, with this library
     - [Margin](#description-of-categorized-parameters-for-margin)
     - [Alignment](#description-of-categorized-parameters-for-alignment)
     - [Visibility](#description-of-categorized-parameters-for-visibility)
+    - [setting](#description-of-categorized-parameters-for-setting)
 
 - [Licence](#licence)
 <!-- /TOC -->
@@ -365,7 +366,7 @@ Enables choosing a single option from several available choices.
 
                 tag = "007"
                 setText.title = "Favorite Movie"
-
+                setting.rowSingleCheck.activeIconSuccess = true
 
                 checkList{
 
@@ -521,6 +522,13 @@ Primarily used to display information without offering special functionalities.
 | Parameter         | Row compatibility        | Description                                                         |
 |-------------------|-----------------------|---------------------------------------------------------------------|
 | isEditable        | ROW_EDIT              | Sets whether the data can be edited by the user.                    |
+
+#### Description of categorized parameters for Setting
+
+| Parameter         | Row compatibility        | Description                                                         |
+|-------------------|-----------------------|---------------------------------------------------------------------|
+| rowSingleCheck.activeIconSuccess        | ROW_SINGLE_CHECK_LIST              |  When user selected a options will appear icon success.                    |
+| rowMultipleCheck.activeIconSuccess        | ROW_MULTIPLE_CHECK_LIST              | When user selected a options will appear icon success.                    |
 
 #### Description of categorized parameters for Animations
 
