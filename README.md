@@ -47,10 +47,13 @@ Fast & Easy Form: is a builder forms for your Android project, with this library
     - [Visibility](#description-of-categorized-parameters-for-visibility)
     - [setting](#description-of-categorized-parameters-for-setting)
 
+- [Example project](#example-project)
+- [Contribution](#contribution)
 - [Licence](#licence)
 <!-- /TOC -->
 
 ## Features
+
 
 - [x] Reduce development time for forms
 - [x] Create simple and user-friendly forms
@@ -67,7 +70,7 @@ Fast & Easy Form: is a builder forms for your Android project, with this library
 
 ## Requirements
 
-Fast & Easy Form is written in Kotlin & Java and compatible with min Sdk version 26 and min version Java 11
+Fast & Easy Form is written in Kotlin & Java and compatible with min Sdk version 26 and min version Java 11. This library is only compatible with phones.
 
 ## Installation
 
@@ -615,6 +618,10 @@ Primarily used to display information without offering special functionalities.
 | icon              | ALL                   | Controls the visibility of the icon (Visible, Invisible, or Gone depending on the context). |
 | check             | ALL                   | Controls the visibility of the checkbox (Visible, Invisible, or Gone depending on the context). |
 | editText          | ALL                   | Controls the visibility of the editable text (Visible, Invisible, or Gone
+
+# Example project
+
+The project example is separate from the main project, if you want check the project, you can check click <a href="https://github.com/LordSaac/FastEasyForm/tree/master/Project_Example" title="Hobbit lifestyles">HERE.</a>
 
 # Contribution
 
