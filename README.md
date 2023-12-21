@@ -80,7 +80,7 @@ it, simply add the following line to your settings gradle:
 allprojects {
     repositories {
 
-        mavenLocal()
+       maven { url 'https://jitpack.io' }
 
     }
 }
@@ -91,7 +91,7 @@ allprojects {
 For [dependencie version](https://github.com/LordSaac/FormSimpleIGB/packages/), add the following to your `gradle`:
 
 ```gradle
-implementation 'com.form.jigb:formsimple:v1.0.8'
+ implementation 'com.github.xprojects-K:FastEasyForm_Android:v1.0.91'
 ```
 
 ## Getting Started
