@@ -77,6 +77,7 @@ Fast & Easy Form is available through [Github](github.com). To install
 it, simply add the following line to your settings gradle:
 
 ```gradle
+
 allprojects {
     repositories {
 
@@ -86,12 +87,27 @@ allprojects {
 }
 ```
 
+
 ### Dependencie
 
 For [dependencie version](https://github.com/LordSaac/FormSimpleIGB/packages/), add the following to your `gradle`:
 
 ```gradle
- implementation 'com.github.xprojects-K:FastEasyForm_Android:v1.0.91'
+
+ compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+ }
+
+kotlinOptions {
+        jvmTarget = '11'
+ }
+
+dependencies {
+
+ implementation 'com.github.xprojects-K:FastEasyForm_Android:v1.0.95'
+
+}
 ```
 
 ## Getting Started
