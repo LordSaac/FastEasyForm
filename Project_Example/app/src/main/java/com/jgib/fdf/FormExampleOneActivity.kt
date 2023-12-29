@@ -120,7 +120,19 @@ class FormExampleOneActivity : AppCompatActivity(), FormsListenerIGB {
     }
 
     override fun actionFormResponse(result: ResponseFormsIGB) {
+        // Manejar la respuesta del formulario si es necesario
+        // Por ejemplo, puedes obtener los resultados aquí
+        val frecuenciaVisita = easyForm.tool.getResultByTag("FRECUENCIA_VISITA")
 
+        if(frecuenciaVisita.options.count { select -> select.check } > 0){
+
+            result.iconArrow = com.creativity.dev.formsimple.R.drawable.success
+
+            result.text = ""
+            easyForm.tool.updateRow("FRECUENCIA_VISITA",result)
+
+        }
+        // Puedes procesar los resultados aquí según tus necesidades
     }
 
 }

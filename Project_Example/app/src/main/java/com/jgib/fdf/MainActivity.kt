@@ -96,10 +96,21 @@ fun ComposeScreen(context: Context, customForm: EasyForm) {
 
             Row(ROW_TITLE){ // <--- Add Title
 
-                setText.title = "Example Forms" //<--- add your title name
+                setText.title = "Encuestas" //<--- add your title name
                 setColor.title = ContextCompat.getColor(context, R.color.black) // <--- Add any colors for title
                 setSize.title = 22.0f
             }
+
+            Row(ROW_ACTIVITY){ // <-- Here Call Any activity
+                setText.title = "Restaurante Rico Pollo"//<-- title .
+                activity = RestaturanRequestActivity::class.java // <-- Add your activity
+            }
+
+            Row(ROW_ACTIVITY){ // <-- Here Call Any activity
+                setText.title = "Cinema Cine Ya"//<-- title .
+                activity = CinemaRequestActivity::class.java // <-- Add your activity
+            }
+
 
             Row(ROW_ACTIVITY){ // <-- Here Call Any activity
                 setText.title = "Cinema Request"//<-- title .
@@ -243,7 +254,6 @@ fun ComposeScreen(context: Context, customForm: EasyForm) {
                 setText.title = "Occupation"// title row.
                 setText.text= "Software Engineer"
             }
-
 
             Row(ROW_INFO){
 
