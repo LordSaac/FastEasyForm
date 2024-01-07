@@ -9,3 +9,5 @@
 /build
 /captures
 .externalNativeBuild
+Project_Example/app/release/app-release.aab
+*.aab

@@ -46,6 +46,7 @@ class RestaturanRequestActivity : AppCompatActivity(), FormsListenerIGB {
         Row(ROW_SINGLE_CHECK_LIST) {
             tag = "FRECUENCIA_VISITA"
             setText.title = "¿Con qué frecuencia suele visitar el restaurante Rico Pollo?"
+            setSize.layout.hight = 150
             checkList {
                 option { text = "Una vez a la semana" }
                 option { text = "Un par de veces al mes" }
@@ -60,6 +61,7 @@ class RestaturanRequestActivity : AppCompatActivity(), FormsListenerIGB {
         Row(ROW_SINGLE_CHECK_LIST) {
             tag = "OPINION_COMIDA"
             setText.title = "En una escala del 1 al 5, ¿cómo calificaría el sabor de la comida en Rico Pollo?"
+            setSize.layout.hight = 150
             checkList {
                 option { text = "1 - Muy insatisfactorio" }
                 option { text = "2 - Insatisfactorio" }
@@ -75,6 +77,7 @@ class RestaturanRequestActivity : AppCompatActivity(), FormsListenerIGB {
         Row(ROW_SINGLE_CHECK_LIST) {
             tag = "CALIDAD_SERVICIO"
             setText.title = "¿Cómo calificaría la calidad del servicio en Rico Pollo?"
+            setSize.layout.hight = 150
             checkList {
                 option { text = "1 - Muy insatisfactoria" }
                 option { text = "2 - Insatisfactoria" }
@@ -90,6 +93,7 @@ class RestaturanRequestActivity : AppCompatActivity(), FormsListenerIGB {
         Row(ROW_SINGLE_CHECK_LIST) {
             tag = "AMBIENTE_RESTAURANTE"
             setText.title = "¿Qué tan agradable encuentra el ambiente en Rico Pollo?"
+            setSize.layout.hight = 150
             checkList {
                 option { text = "1 - Muy desagradable" }
                 option { text = "2 - Desagradable" }
@@ -105,6 +109,7 @@ class RestaturanRequestActivity : AppCompatActivity(), FormsListenerIGB {
         Row(ROW_SINGLE_CHECK_LIST) {
             tag = "VARIEDAD_MENU"
             setText.title = "¿Cómo calificaría la variedad de opciones en el menú?"
+            setSize.layout.hight = 150
             checkList {
                 option { text = "1 - Muy limitada" }
                 option { text = "2 - Limitada" }
@@ -120,6 +125,7 @@ class RestaturanRequestActivity : AppCompatActivity(), FormsListenerIGB {
         Row(ROW_SINGLE_CHECK_LIST) {
             tag = "PRECIO_CALIDAD"
             setText.title = "¿Considera que el precio está justificado por la calidad de la comida en Rico Pollo?"
+            setSize.layout.hight = 150
             checkList {
                 option { text = "1 - No está justificado" }
                 option { text = "2 - Apenas justificado" }

@@ -59,6 +59,7 @@ class CinemaRequestActivity : AppCompatActivity(), FormsListenerIGB {
             tag = "CALIDAD_PROYECCIONES"
             setting.rowSingleCheck.activeIconSuccess = true
             setText.title = "En una escala del 1 al 5, ¿cómo calificaría la calidad de las proyecciones en Cine Ya?"
+            setSize.layout.hight = 150
             checkList {
                 option { text = "1 - Mala calidad" }
                 option { text = "2 - Regular" }
@@ -73,6 +74,7 @@ class CinemaRequestActivity : AppCompatActivity(), FormsListenerIGB {
         Row(ROW_SINGLE_CHECK_LIST) {
             tag = "COMODIDAD_BUTACAS"
             setText.title = "¿Qué tan cómodas encuentra las butacas en Cine Ya?"
+            setSize.layout.hight = 150
             setting.rowSingleCheck.activeIconSuccess = true
             checkList {
                 option { text = "1 - Muy incómodas" }
@@ -89,6 +91,7 @@ class CinemaRequestActivity : AppCompatActivity(), FormsListenerIGB {
             tag = "VARIEDAD_PELICULAS"
             setting.rowSingleCheck.activeIconSuccess = true
             setText.title = "¿Cómo calificaría la variedad de películas ofrecidas por Cine Ya?"
+            setSize.layout.hight = 150
             checkList {
                 option { text = "1 - Muy limitada" }
                 option { text = "2 - Limitada" }
@@ -104,6 +107,8 @@ class CinemaRequestActivity : AppCompatActivity(), FormsListenerIGB {
             tag = "PRECIO_ENTRADAS"
             setting.rowSingleCheck.activeIconSuccess = true
             setText.title = "¿Considera que el precio de las entradas es adecuado en Cine Ya?"
+            setSize.layout.hight = 150
+
             checkList {
                 option { text = "1 - Demasiado caro" }
                 option { text = "2 - Caro" }
@@ -114,12 +119,6 @@ class CinemaRequestActivity : AppCompatActivity(), FormsListenerIGB {
             validation = true // Habilitar validación
         }
 
-        // Comentarios adicionales
-        Row(ROW_EDIT) {
-            tag = "COMENTARIOS"
-            setText.title = "¿Tiene algún comentario adicional o sugerencia para mejorar su experiencia en Cine Ya?"
-            validation = true // Habilitar validación
-        }
 
         Row(ROW_TITLE){
 
