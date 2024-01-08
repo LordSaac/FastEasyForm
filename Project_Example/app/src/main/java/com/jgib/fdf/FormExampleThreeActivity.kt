@@ -7,11 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.creativity.dev.formsimple.Row
 import com.creativity.dev.formsimple.option
-import com.creativity.dev.formsimple.types.ROW_CALENDAR
-import com.creativity.dev.formsimple.types.ROW_CHECK
-import com.creativity.dev.formsimple.types.ROW_EDIT
-import com.creativity.dev.formsimple.types.ROW_SINGLE_CHECK_LIST
-import com.creativity.dev.formsimple.types.ROW_TITLE
+import com.creativity.dev.formsimple.types.*
 import com.example.dreamteach.listselectdinamic.IGBDynamicList.EasyForm
 import com.jgib.fdf.R
 

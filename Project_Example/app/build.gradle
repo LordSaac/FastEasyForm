@@ -66,8 +66,6 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
-    implementation 'com.github.xprojects-K:FastEasyForm_Android:v1.0.98'
-
-
+    implementation 'com.github.xprojects-K:FastEasyForm_Android:v1.1.0'
 
 }
