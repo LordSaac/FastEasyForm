@@ -102,7 +102,7 @@ fun ComposeScreen(context: Context, customForm: EasyForm) {
             }
 
             Row(ROW_ACTIVITY){ // <-- Here Call Any activity
-                setText.title = "Restaurante Rico Pollo"//<-- title .
+                setText.title = "Restaurante Rico Pollo"//<-- title
                 activity = RestaturanRequestActivity::class.java // <-- Add your activity
             }
 
