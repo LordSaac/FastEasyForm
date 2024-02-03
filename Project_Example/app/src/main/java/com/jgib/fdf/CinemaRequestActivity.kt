@@ -44,7 +44,6 @@ class CinemaRequestActivity : AppCompatActivity(), FormsListenerIGB {
         Row(ROW_SINGLE_CHECK_LIST) {
             tag = "FRECUENCIA_VISITA"
             setText.title = "¿Con qué frecuencia suele visitar el cine Ya?"
-            setting.rowSingleCheck.activeIconSuccess = true
             checkList {
                 option { text = "Una vez al mes" }
                 option { text = "Un par de veces al año" }

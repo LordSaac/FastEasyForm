@@ -108,18 +108,32 @@ kotlinOptions {
 
 dependencies {
 
- implementation 'com.github.xprojects-K:FastEasyForm_Android:v1.0.97'
+ implementation 'com.github.xprojects-K:FastEasyForm_Android:v1.1.0'
 
 }
 ```
 
 ## Getting Started
 
+###  Imports into class
+
+Copy and paste this imports in the top on the activity class.
+
+```kotlin
+
+import com.creativity.dev.formsimple.Row
+import com.creativity.dev.formsimple.option
+import com.creativity.dev.formsimple.types.*
+import com.example.dreamteach.listselectdinamic.IGBDynamicList.EasyForm
+
+```
+
 ###  Example MainActivity
 
 For classic class activity follow the next code example.
 
 ```kotlin
+
 class MainActivity : AppCompatActivity(), FormsListenerIGB {
 
     private lateinit var rv_main: RecyclerView // Add RecyclerView into xml
