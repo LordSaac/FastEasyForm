@@ -835,13 +835,13 @@ Thank you for use this library on your project, with you collaboration this proj
 
   <figure align="center">
       <a href="https://paypal.me/LordSaac?locale.x=es_XC">
-    <img src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/Paypal_2014_logo.png" alt="Sunset Landscape" title="Sunset Landscape" width="100" height="100" />
+    <img src="https://github.com/LordSaac/FastEasyForm/blob/master/Paypal_2014_logo.png" alt="Sunset Landscape" title="Sunset Landscape" width="100" height="100" />
       </a>
   </figure>
 
   <figure>
           <a href="https://github.com/LordSaac/FastEasyForm">
-    <img src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/github-stars-logo_Color.png" alt="Mountain View" title="Mountain View" width="100" height="100" />
+    <img src="https://github.com/LordSaac/FastEasyForm/blob/master/68747470733a2f2f6769746875622e626c6f672f77702d636f6e74656e742f75706c6f6164732f323032302f30392f6769746875622d73746172732d6c6f676f5f436f6c6f722e706e67.png" alt="Mountain View" title="Mountain View" width="100" height="100" />
       </a>
   </figure>
 
