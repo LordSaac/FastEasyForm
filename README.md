@@ -1,17 +1,24 @@
-# Fast & Easy Forms 
-
-<p align="center"><img src="logo.jpeg"></p>
+<p align="center"><img src="https://github.com/LordSaac/FastEasyForm/blob/master/background_easy_form.png"></p>
 
 Fast & Easy Form: is a builder forms for your Android project, with this library you will can build forms more fast and easy, using a clear structure for implement in your proyect. This solution offer a different tools like: validations, get data, update data and events listeners.
 
 <p align="center">
 
-|||
-|:----:|:----:|
-|<img  height="568" width="320" src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/Screenshot_20231214_134359.png">|<img  height="568" width="320" src="https://github.com/LordSaac/FastEasyForm/blob/master/Project_Example/Screen_recording_20231214_205436.gif">|
+<p align="center">
+<a href="https://github.com/TheJuki/KFormMaster/actions"><img src="https://github.com/TheJuki/KFormMaster/workflows/Build/badge.svg?branch=master" alt="Build status" /></a>
+<a href="https://codecov.io/gh/TheJuki/KFormMaster"><img src="https://codecov.io/gh/TheJuki/KFormMaster/branch/master/graph/badge.svg" alt="codecov" /></a>
+<a href="https://codebeat.co/projects/github-com-thejuki-kformmaster-master"><img alt="codebeat badge" src="https://codebeat.co/badges/43fca492-2564-4401-8f4b-91d3bc811d70" /></a>
+<a href="https://android-arsenal.com/api?level=19"><img src="https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat" alt="API" /></a>
+<a href="https://maven-badges.herokuapp.com/maven-central/com.github.thejuki/k-form-master"><img src="https://maven-badges.herokuapp.com/maven-central/com.github.thejuki/k-form-master/badge.svg" alt="Maven Central" /></a>
 </p>
 
+## Examples
+| [DARK MODE ON](https://github.com/LordSaac/FastEasyForm/blob/master/app/src/main/java/com/creativity/dev/formsimpleigb/MainActivity.kt) | [Menu Screen](https://github.com/LordSaac/FastEasyForm/blob/master/app/src/main/java/com/creativity/dev/formsimpleigb/MainActivity.kt) | [Input](https://github.com/LordSaac/FastEasyForm/blob/master/app/src/main/java/com/creativity/dev/formsimpleigb/MainActivity.kt) |
+| --- | --- | --- |
+![Example](https://github.com/LordSaac/FastEasyForm/blob/master/easy_form_video.gif) | ![Example](https://github.com/LordSaac/FastEasyForm/blob/master/recording_2.gif) | ![Example](https://github.com/LordSaac/FastEasyForm/blob/master/recording_98.gif) |
+
 <!-- TOC -->
+## Documentation
 
 - [Features](#features)
 - [Requirements](#requirements)
