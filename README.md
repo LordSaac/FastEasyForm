@@ -170,12 +170,12 @@ class MainActivity : AppCompatActivity(), FormsListenerIGB {
 
             content { 
 
-                Row(RowType.TITLE) { 
+                Row(RType.TITLE) { 
                     setText.title = "Getting started"
                     setColor.title = R.color.colorPrimary_aar 
                 }
 
-                Row(RowType.INFO) { 
+                Row(RType.INFO) { 
                     setText.title = "Hello world!"
                     setColor.title = R.color.colorGray 
                 }
@@ -361,7 +361,7 @@ var easyFastForm = BuildForm(mContext = this) {
 
             content { // Inside this option, you can set your rows.
 
-                row(RowType.INFO) {
+                row(RType.INFO) {
                     title = "Developer"
                     text = "JIGB-K"
                 }
