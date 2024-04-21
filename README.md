@@ -124,7 +124,7 @@ kotlinOptions {
 
 dependencies {
 
- implementation 'com.github.xprojects-K:FastEasyForm_Android:v1.1.0'
+     implementation 'com.github.LordSaac:FastEasyForm:v2.0.1'
 
 }
 ```
