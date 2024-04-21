@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Not_available">#aeafac</color>
+    <color name="cardview_light_background">#FFFFFFFF</color>
+    <color name="colorBacgroundGray">#45bfbfbf</color>
+    <color name="colorBacgroundGrayLite">#3dededed</color>
+    <color name="colorBacgroundRecicler">#adffedd1</color>
+    <color name="colorBacgroundReciclerGreen">#94ffffff</color>
+    <color name="colorBambito">#81c243</color>
+    <color name="colorBlack">#f3000000</color>
+    <color name="colorBlack2">#18FFFF</color>
+    <color name="colorGray">#d4bfa8</color>
+    <color name="colorOrange">#ff6f00</color>
+    <color name="colorPrimary_aar">#FF000000</color>
+    <color name="colorRed">#fa000b</color>
+    <color name="colorTextGray">#959595</color>
+    <color name="colorWhite">#fff</color>
+    <color name="colorYellow">#ffee00</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_none">#00000000</color>
+    <color name="transparent_white">#ebffffff</color>
+    <string name="Empty_messages">Empty</string>
+    <string name="Error_001">View not present windows </string>
+    <string name="Error_tag">Error</string>
+    <string name="title_activity_ease_form_compose">EaseFormComposeActivity</string>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppThemed_FormJIGB" parent="Theme.AppCompat.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/colorWhite</item>
+
+    </style>
+    <style name="AppThemed_FormJIGB.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+    <style name="MyHintTextAppearance_Dark" parent="TextAppearance.Design.Hint">
+
+        <item name="android:textColor">@color/colorWhite</item>
+        
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textSize">16sp</item>
+        
+        <item name="colorAccent">@color/colorWhite</item>
+        <item name="colorControlNormal">@color/colorWhite</item>
+        <item name="colorControlActivated">@color/colorWhite</item>
+        <item name="colorControlHighlight">@color/colorWhite</item>
+        <item name="boxStrokeColor">@color/colorWhite</item>
+
+    </style>
+    <style name="MyHintTextAppearance_Light" parent="TextAppearance.Design.Hint">
+
+        <item name="android:textColor">@color/colorBlack</item>
+        
+        <item name="android:textColorHint">@color/colorBlack</item>
+        <item name="android:textSize">16sp</item>
+        
+        <item name="colorAccent">@color/colorBlack</item>
+        <item name="colorControlNormal">@color/colorBlack</item>
+        <item name="colorControlActivated">@color/colorBlack</item>
+        <item name="colorControlHighlight">@color/colorBlack</item>
+        <item name="boxStrokeColor">@color/colorBlack</item>
+
+    </style>
+    <style name="MyTextInputLayout.Dark" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        
+        <item name="android:textColorHint">@color/colorBlack</item>
+        
+        <item name="boxStrokeColor">@color/colorBlack</item>
+    </style>
+    <style name="MyTextInputLayout.Light" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        
+        <item name="android:textColorHint">@color/colorBlack</item>
+        
+        <item name="boxStrokeColor">@color/colorBlack</item>
+    </style>
+    <style name="SCREEN">
+
+        <item name="android:background">#FFF</item>
+
+    </style>
+    <style name="TEXT">
+
+        <item name="android:textColor">#000</item>
+
+    </style>
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+</resources>

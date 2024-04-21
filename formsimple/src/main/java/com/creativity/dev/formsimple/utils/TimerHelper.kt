@@ -1,7 +1,6 @@
 package com.creativity.dev.formsimple.utils
 
 import android.annotation.SuppressLint
-import kotlinx.android.synthetic.main.activity_calendar.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -11,9 +10,9 @@ class TimerHelper{
     private var strRespons: String = ""
     private var srtFormat: String = ""
 
-
     companion object {
         var longDate: String = "MMMM dd yyyy"
+        var timeFormatBasic = "HH:mm"
     }
     @SuppressLint("SimpleDateFormat")
     fun getFormateHour(): String{

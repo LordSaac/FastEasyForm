@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:drawable/editbox_background_normal"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_title_cmt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:text="Comentarios"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/edt_dialog_cmt"
+        android:layout_width="match_parent"
+        android:layout_height="172dp"
+        android:layout_weight="1"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="Escribir aquí ..."
+        android:inputType="textAutoCorrect|textAutoComplete|textMultiLine"
+        android:padding="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel_cmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Cancelar"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:textStyle="normal|bold" />
+
+        <Button
+            android:id="@+id/btn_accept_cmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Aceptar"
+            android:textColor="@color/colorPrimary_aar"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -8,6 +8,7 @@ class ColectionCalendar:Serializable{
 
     var title: String = ""
     var text: String = ""
+    var format: String = ""
     var colorToolbar: Int = 0
     var colorTitleToolbar: Int = 0
     var background: Int = 0

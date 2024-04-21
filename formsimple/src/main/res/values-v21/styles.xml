@@ -2,10 +2,12 @@
 <resources>
 
     <style name="picker_clock" parent="@android:style/Widget.Material.Light.TimePicker">
-        <item name="android:numbersTextColor">#ffffff</item>
-        <item name="android:numbersBackgroundColor">@color/colorPrimary</item>
+        <item name="colorPrimary">#AF0000</item>
+        <item name="colorPrimaryDark">#3C1414</item>
+        <item name="android:numbersTextColor">#000000</item>
+        <item name="colorAccent">#C64747</item>
         <item name="android:numbersSelectorColor">#88000000</item>
-        <item name="android:headerBackground">@color/colorPrimary</item>
+
     </style>
 
 </resources>

@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary_aar">#4bad4c</color>
+    <color name="colorPrimary_aar">#FF000000</color>
 
     <color name="transparent">#00000000</color>
-
+    <color name="colorRed">#fa000b</color>
+    <color name="colorWhite">#fff</color>
+    <color name="colorTextGray">#959595</color>
+    <color name="colorGray">#d4bfa8</color>
+    <color name="colorBambito">#81c243</color>
+    <color name="transparent_none">#00000000</color>
+    <color name="transparent_white">#ebffffff</color>
+    <color name="colorYellow">#ffee00</color>
+    <color name="colorOrange">#ff6f00</color>
+    <color name="colorBacgroundRecicler">#adffedd1</color>
+    <color name="colorBacgroundReciclerGreen">#94ffffff</color>
+    <color name="colorBacgroundGray">#45bfbfbf</color>
+    <color name="colorBacgroundGrayLite">#3dededed</color>
+    <color name="colorBlack">#f3000000</color>
+    <color name="colorBlack2">#18FFFF</color>
+    <color name="cardview_light_background">#FFFFFFFF</color>
+    <color name="Not_available">#aeafac</color>
 
 </resources>

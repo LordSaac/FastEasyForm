@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:outlineProvider="paddedBounds"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:theme="@style/AppThemed_FormJIGB">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="0dp"
+        android:outlineProvider="bounds"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lyt_content_obj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/rl_letter_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_letters_inps"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/circular_view"
+                        android:gravity="center_horizontal|center"
+                        android:text="A"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_title_insp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Example request"
+                            android:textAlignment="textStart"
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="18sp"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tv_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Make this request for knowledge  your level satisfaction."
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_desc_insp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:linksClickable="false"
+                        android:paddingEnd="5dp"
+                        android:textAlignment="textEnd"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/style2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:textColorHint="@android:color/black">
+
+                        <EditText
+                            android:id="@+id/edt_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/background_light"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:textSize="16sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/conten_img_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_selected2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="15dp"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/img_selected"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_margin="10dp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/ck_selected_insp"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:paddingLeft="20dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_icon_insp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:text="FONT"
+                    android:textAlignment="gravity"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_message_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Error Messages"
+                android:textColor="#FF0000"
+                android:textSize="10sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ly_separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/transparent"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:id="@+id/ly_separator2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorBacgroundGrayLite"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

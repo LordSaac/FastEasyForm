@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="picker_clock" parent="@android:style/Widget.Material.Light.TimePicker">
+        <item name="colorPrimary">#AF0000</item>
+        <item name="colorPrimaryDark">#3C1414</item>
+        <item name="android:numbersTextColor">#000000</item>
+        <item name="colorAccent">#C64747</item>
+        <item name="android:numbersSelectorColor">#88000000</item>
+
+    </style>
+</resources>

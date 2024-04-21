@@ -5,4 +5,5 @@ package com.creativity.dev.formsimple.interfaces
      fun eventEdtiText(str: String)
      fun eventChecked(isSelected: Boolean): Int //<-- Return image check
      fun getSelected():Boolean
+
 }

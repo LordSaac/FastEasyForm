@@ -1,13 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary_aar</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar">
+    <style name="AppThemed_FormJIGB.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -18,5 +12,54 @@
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyHintTextAppearance_Light" parent="TextAppearance.Design.Hint">
+
+        <item name="android:textColor">@color/colorBlack</item>
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/colorBlack</item>
+        <item name="android:textSize">16sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/colorBlack</item>
+        <item name="colorControlNormal">@color/colorBlack</item>
+        <item name="colorControlActivated">@color/colorBlack</item>
+        <item name="colorControlHighlight">@color/colorBlack</item>
+        <item name="boxStrokeColor">@color/colorBlack</item>
+
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+    <style name="MyHintTextAppearance_Dark" parent="TextAppearance.Design.Hint">
+
+        <item name="android:textColor">@color/colorWhite</item>
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/colorWhite</item>
+        <item name="android:textSize">16sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/colorWhite</item>
+        <item name="colorControlNormal">@color/colorWhite</item>
+        <item name="colorControlActivated">@color/colorWhite</item>
+        <item name="colorControlHighlight">@color/colorWhite</item>
+        <item name="boxStrokeColor">@color/colorWhite</item>
+
+    </style>
+
+    <style name="MyTextInputLayout.Light" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Text color for the hint text when it's not focused -->
+        <item name="android:textColorHint">@color/colorBlack</item>
+        <!-- Color of the underline when it's not focused -->
+        <item name="boxStrokeColor">@color/colorBlack</item>
+    </style>
+
+    <style name="MyTextInputLayout.Dark" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Text color for the hint text when it's not focused -->
+        <item name="android:textColorHint">@color/colorBlack</item>
+        <!-- Color of the underline when it's not focused -->
+        <item name="boxStrokeColor">@color/colorBlack</item>
+    </style>
 
 </resources>

@@ -2,11 +2,12 @@ package com.creativity.dev.formsimple.utils
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.Toolbar
+import android.content.Context
 import android.view.View
-import android.widget.RelativeLayout
+import android.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.creativity.dev.formsimple.R
+import com.creativity.dev.formsimple.databinding.ActivitySelectBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,20 +22,35 @@ class GeneralHelper{
 
         }
 
-        fun createToolbar (context: Activity, nameActivity: String,colorTitle: Int,colorBackground: Int){
-            val mToolbar = context.findViewById<View>(R.id.toolbar_2) as Toolbar
-            mToolbar.setTitle(nameActivity)
+        fun getColor(context: Context, color:Int): Int{
+
+            try {
+                return ContextCompat.getColor(context,color)
+            }catch (ex:java.lang.Exception){
+                return R.color.colorBlack
+            }
+
+        }
+
+        fun createToolbar (context: Activity,mToolbar: androidx.appcompat.widget.Toolbar,nameActivity: String,colorTitle: Int,colorBackground: Int){
+
+            mToolbar.title = nameActivity
+
             mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp)
+
             mToolbar.setTitleTextColor(colorTitle)
+
             mToolbar.setBackgroundColor(colorBackground)
+
             mToolbar.setNavigationOnClickListener { context.finish() }
+
         }
 
         fun createSimpleToolbar (context: Activity, nameActivity: String,colorTitle: Int,colorBackground: Int){
             val mToolbar = context.findViewById<View>(R.id.toolbar_2) as Toolbar
             mToolbar.setTitleTextColor(colorTitle)
             mToolbar.setBackgroundColor(colorBackground)
-            mToolbar.setTitle(nameActivity)
+            mToolbar.title = nameActivity
         }
 
         fun keyBundle (): String{
@@ -47,14 +63,14 @@ class GeneralHelper{
             return cal
         }
 
-        fun setContentEmpty(mActivity: Activity, isVisible: Boolean){
+        fun setContentEmpty(mActivity: ActivitySelectBinding, isVisible: Boolean){
 
-            val contentEmpty = mActivity.findViewById<ConstraintLayout>(R.id.content_empty)
+            val contentEmpty = mActivity.include.contentEmpty
 
             if(isVisible)
-                contentEmpty.setVisibility(View.VISIBLE)
+                contentEmpty.visibility = View.VISIBLE
             else
-                contentEmpty.setVisibility(View.GONE)
+                contentEmpty.visibility = View.GONE
 
         }
 
@@ -62,15 +78,15 @@ class GeneralHelper{
         fun parseDate(srt: String,format: String): Date{
             //dd/MM/yyyy
             var date = Date()
-            val completionDate1 = srt
             val df = SimpleDateFormat(format)
 
-            try{
-                date = df.parse(completionDate1)
-                return date
+            return try{
+
+                date = df.parse(srt) as Date
+                date
 
             }catch (e: Exception){
-                return date
+                date
             }
 
         }

@@ -5,5 +5,6 @@
     <string name="Error_001">View not present windows </string>    <!-- This error is category 1, not affect the performance -->
     <!-- Strings Messages -->
     <string name="Empty_messages">Empty</string>
+    <string name="title_activity_ease_form_compose">EaseFormComposeActivity</string>
 
 </resources>

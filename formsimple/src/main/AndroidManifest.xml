@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.creativity.dev.formsimple">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.creativity.dev.formsimple"
+    android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
 
-    <application>
-
+    <application
+        android:allowBackup="true"
+        tools:replace="android:allowBackup"
+        >
         <activity
-                android:name=".ui.SelectActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:name="UnitTestActivity"
+            android:theme="@style/AppThemed_FormJIGB.NoActionBar"
+            android:exported="false" />
         <activity
-                android:name=".CalendarActivity"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:name=".compose.EaseFormComposeActivity"
+            android:theme="@style/AppThemed_FormJIGB.NoActionBar"
+            android:exported="false"
+            android:label="@string/title_activity_ease_form_compose" />
         <activity
-                android:name=".Calendar_H_Activity"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:name=".ui.SelectActivity"
+            android:theme="@style/AppThemed_FormJIGB.NoActionBar"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".ui.CalendarActivity"
+            android:theme="@style/AppThemed_FormJIGB.NoActionBar"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".ui.Calendar_H_Activity"
+            android:theme="@style/AppThemed_FormJIGB.NoActionBar" />
     </application>
 
 </manifest>

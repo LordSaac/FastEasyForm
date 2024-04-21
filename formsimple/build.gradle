@@ -1,22 +1,12 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'maven-publish'
-apply plugin: 'idea'
-apply plugin: "com.jfrog.artifactory"
 
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.8.1"
-    }
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'maven-publish'
+    id "org.sonarqube" version "4.4.1.3373"
 }
+
 allprojects {
     tasks.withType(Javadoc) {
         options.addStringOption('Xdoclint:none', '-quiet')
@@ -24,16 +14,33 @@ allprojects {
     }
 }
 android {
-    compileSdkVersion 28
+
+    compileSdkVersion 34
 
     defaultConfig {
-        minSdkVersion 20
-        targetSdkVersion 28
-        versionCode 1
-        versionName "0.0.1"
-
+        minSdkVersion 26
+        targetSdkVersion 34
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+        vectorDrawables {
+            useSupportLibrary true
+        }
 
+    }
+
+    testOptions.unitTests {
+        includeAndroidResources = true
+    }
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+    buildFeatures {
+        viewBinding = true
+        compose true
     }
 
     buildTypes {
@@ -46,6 +53,21 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.0"
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
 
 }
 
@@ -53,20 +75,54 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.android.support:design:28.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation platform('androidx.compose:compose-bom:2022.10.00')
+    implementation 'androidx.compose.ui:ui-graphics:1.5.4'
+    implementation 'androidx.compose.ui:ui-tooling:1.5.4'
+    implementation 'androidx.compose.material3:material3:1.1.2'
+    implementation 'androidx.test:monitor:1.6.1'
+    implementation 'androidx.test:core-ktx:1.5.0'
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
-    implementation 'com.manager.font.fontlibreryigb:fontmanager:0.0.9'
-    implementation 'com.android.support:cardview-v7:28.0.0'
-    implementation 'com.jgb.lordsaac.igb.animationsupport:supportanimation:0.0.4'
-    implementation 'android.arch.lifecycle:extensions:1.1.1'
-    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    implementation 'androidx.core:core-ktx:1.12.0'
 
+    implementation "androidx.compose.ui:ui:1.5.4"
+    implementation "androidx.activity:activity-compose:1.8.2"
+    androidTestImplementation platform('androidx.compose:compose-bom:2022.10.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling:1.5.4'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    // Unit Test Dependency
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:core:1.5.0'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+
+    testImplementation "org.robolectric:robolectric:4.11.1"
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+}
+
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+def getVersionName = { ->
+    return "v1.3.93"  // Replace with version Name
+}
+
+def getArtificatId = { ->
+    return "formsimple" // Replace with library name ID
 }
 
 
@@ -74,111 +130,47 @@ task sourcesJar(type: Jar) {
     from android.sourceSets.main.kotlin.srcDirs
     classifier = 'sources'
 }
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.kotlin.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-//tasks.withType(Javadoc).all {
-//    enabled = false
-//}
-
 artifacts {
-    archives javadocJar
     archives sourcesJar
-}
-
-
-bintray {
-    user = ''//System enviroment variable
-    key = ''
-    logger.log(LogLevel.ERROR, "user:" + user + " key:" + key)
-    publications = ['MyPublication']
-    //configurations = ['archives']
-    pkg {
-        repo = 'Forms_IGB'
-        name = 'simpleformigb'
-        //        userOrg = 'bintray_user'
-        licenses = ['Apache-2.0']
-        websiteUrl = 'https://github.com/LordSaac/FormSimpleIGB'
-        issueTrackerUrl = 'https://github.com/LordSaac/FormSimpleIGB/issues'
-        vcsUrl = 'https://github.com/LordSaac/FormSimpleIGB.git'
-        publicDownloadNumbers = true
-
-        //        githubRepo = 'linjonh/MvpArch' //Optional Github repository
-        //        githubReleaseNotesFile = 'README.md' //Optional Github readme file
-
-        publish = true
-        version {
-            name = android.defaultConfig.versionName
-            desc = 'Simple List IGB is a dynamic template for creating easy forms for the Android Kotlin developer. Combine any design and adapte Simple List IGN in your final user interface.'
-            released = new Date()
-            vcsTag = android.defaultConfig.versionName
-            attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
-        }
-    }
 }
 
 def pomConfig = {
     licenses {
         license {
             name "The Apache Software License, Version 2.0"
-            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            url "https://www.apache.org/licenses/LICENSE-2.0.txt"
             distribution "repo"
         }
     }
     developers {
         developer {
             id "lordsaac"
-            name "Isaac Banda"
-            email "jose19.26@hotmail.com"
+            name "José I. Gutiérrez B."
+            email "jose19.26@outlook.com"
         }
     }
 
     scm {
-        url "https://github.com/LordSaac"
+        url "https://blog-jgutierrez.web.app/"
     }
 }
 
-publishing {
-    publications {
-        MyPublication(MavenPublication) {
 
-            artifact sourcesJar
-            //artifact javadocJar
-            artifact("$buildDir/outputs/aar/formsimple-release.aar")
-            groupId 'com.jgb.lordsaac.igb.formsimpleigb'
-            artifactId 'simpleformigb'
-            version android.defaultConfig.versionName
-            pom.withXml {
-                def dependenciesNode = asNode().appendNode('dependencies')
-                def root = asNode()
-                root.appendNode('description', 'Simple List IGB is a dynamic template for creating easy forms for the Android Kotlin developer. Combine any design and adapte Simple List IGN in your final user interface.')
-                root.appendNode('name', 'simpleformigb')
-                root.appendNode('url', 'https://github.com/LordSaac/FormSimpleIGB')
-                root.children().last() + pomConfig
-                // Iterate over the implementation dependencies (we don't want the test ones), adding a <dependency> node for each
-                //android gradle 3.0 use implementation
-                configurations.implementation.allDependencies.each {
-                    // Ensure dependencies such as fileTree are not included.
-                    logger.log(LogLevel.ERROR,"allDependencies.each:====>"+it.toString()+"\n")
 
-                    if (it.name != 'unspecified') {
-                        logger.log(LogLevel.ERROR,"allDependencies.each: !unspecified: "+it.name+"\n")
-                        def dependencyNode = dependenciesNode.appendNode('dependency')
-                        dependencyNode.appendNode('groupId', it.group)
-                        dependencyNode.appendNode('artifactId', it.name)
-                        dependencyNode.appendNode('version', it.version)
-                    }
-                }
+afterEvaluate {
+    publishing {
+        publications {
+// Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components. release
+//You can then customize attributes of the publication as shown below.
+                groupId 'com.form.jigb' // Replace with group ID
+                artifactId getArtificatId()
+                version getVersionName()
             }
-
         }
     }
 }
+
+
