@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/LordSaac/FastEasyForm/blob/master/background_easy_form.png"></p>
 
-Fast & Easy Form: is a builder forms for your Android project, with this library you will can build forms more fast and easy, using a clear structure for implement in your proyect. This solution offer a different tools like: validations, get data, update data and events listeners.
+Fast & Easy Form: is a builder forms for your Android project, with this library you will can build forms more fast and easy, using a clear structure for implement in your project. This solution offer a different tools like: validations, get data, update data and events listeners.
 
 <p align="center">
 
